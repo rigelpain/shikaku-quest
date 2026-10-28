@@ -109,12 +109,10 @@ pnpm --config.verify-deps-before-run=false tsx scripts/ipa/validate.ts
 | fe-sample-a | 60 | 全問 | 科目A サンプル問題セット |
 | fe-sample-b | 20 | 全問 | 科目B サンプル問題セット |
 | fe-sample-b-202204 | 6 | 全問 | 科目B サンプル問題（2022-04-25） |
-| ap-r7-spring-am | 80 | 全問 | OCR + 全問目視補正 |
-| ap-r7-autumn-am / ap-r6-spring-am / ap-r6-autumn-am | 80 × 3 | なし | OCR + 全問目視補正、分類のみ |
+| ap-r7-spring-am / ap-r7-autumn-am / ap-r6-spring-am / ap-r6-autumn-am | 80 × 4 | 全問 | OCR + 全問目視補正 |
 
 ## 次にやるべきこと
 
-- AP 午前 令和7年度秋期・令和6年度春期・秋期（240 問）の解説（`explanation`）を `overrides/` に追加する。
 - `explanation` は AI 生成・未検証（`explanationVerified: false`）なので、人による確認とフラグの更新。
 - 図のページ画像（`figureImage`）はページ全体なので、問の部分だけに切り抜くとスマホで読みやすくなる
   （FE はテキストレイヤの座標、AP は OCR の矩形から「問N」〜「問N+1」の範囲を求められる）。

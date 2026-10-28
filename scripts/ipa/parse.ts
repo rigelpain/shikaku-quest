@@ -404,9 +404,14 @@ export async function parseSet(source: Source, generatedAt: string): Promise<{ s
   return { set, report };
 }
 
-function writeJson(path: string, data: unknown): void {
+/** generatedAt 以外が既存ファイルと同じなら書き込まない（再実行で未変更セットに差分が出ないようにする） */
+function writeJson(path: string, data: unknown): boolean {
+  const next = JSON.stringify(data, null, 2) + "\n";
+  const stripGeneratedAt = (json: string): string => json.replace(/^  "generatedAt": "[^"]*",\n/m, "");
+  if (existsSync(path) && stripGeneratedAt(readFileSync(path, "utf8")) === stripGeneratedAt(next)) return false;
   mkdirSync(dirname(path), { recursive: true });
-  writeFileSync(path, JSON.stringify(data, null, 2) + "\n", "utf8");
+  writeFileSync(path, next, "utf8");
+  return true;
 }
 
 function buildIndex(generatedAt: string): QuestionIndex {
@@ -450,9 +455,9 @@ async function main(): Promise<void> {
         hadError = true;
         console.error(`  schema error:`, parsed.error.issues.slice(0, 10));
       }
-      writeJson(resolve(OUT_ROOT, source.cert, `${source.setId}.json`), set);
+      const written = writeJson(resolve(OUT_ROOT, source.cert, `${source.setId}.json`), set);
       reports.push(report);
-      console.log(`  問数 ${report.count} / 解説 ${report.withExplanations} / 図 ${report.withFigure}（画像 ${report.withFigureImage}） / 失敗 [${report.failed.join(",")}]`);
+      console.log(`  問数 ${report.count} / 解説 ${report.withExplanations} / 図 ${report.withFigure}（画像 ${report.withFigureImage}） / 失敗 [${report.failed.join(",")}]${written ? "" : "（変更なし）"}`);
       for (const w of report.warnings) console.log(`  ! ${w}`);
     } catch (e) {
       hadError = true;

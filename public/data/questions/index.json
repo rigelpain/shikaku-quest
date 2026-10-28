@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-28T07:18:58.102Z",
+  "generatedAt": "2026-10-28T07:25:35.027Z",
   "sets": [
     {
       "id": "fe-r8-koukai-a",
@@ -154,7 +154,7 @@
       "season": "秋期",
       "kind": "過去問題",
       "count": 80,
-      "withExplanations": 0,
+      "withExplanations": 80,
       "file": "ap/ap-r7-autumn-am.json"
     },
     {
@@ -166,7 +166,7 @@
       "season": "春期",
       "kind": "過去問題",
       "count": 80,
-      "withExplanations": 0,
+      "withExplanations": 80,
       "file": "ap/ap-r6-spring-am.json"
     },
     {
@@ -178,7 +178,7 @@
       "season": "秋期",
       "kind": "過去問題",
       "count": 80,
-      "withExplanations": 0,
+      "withExplanations": 80,
       "file": "ap/ap-r6-autumn-am.json"
     }
   ]
