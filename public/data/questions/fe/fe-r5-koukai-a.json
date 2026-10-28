@@ -9,7 +9,7 @@
   "sourceUrl": "https://www.ipa.go.jp/shiken/mondai-kaiotu/sg_fe/koukai/t6hhco0000003zx0-att/2023r05_fe_kamoku_a_qs.pdf",
   "answerUrl": "https://www.ipa.go.jp/shiken/mondai-kaiotu/sg_fe/koukai/t6hhco0000003zx0-att/2023r05_fe_kamoku_a_ans.pdf",
   "license": "IPA: 出典明記で許諾不要",
-  "generatedAt": "2026-10-28T06:46:04.416Z",
+  "generatedAt": "2026-10-28T07:18:58.102Z",
   "questions": [
     {
       "id": "fe-r5-koukai-a-q01",
@@ -260,7 +260,8 @@
       ],
       "explanation": "WAF は HTTP の通信内容（リクエストのパラメータなど）を検査して Web アプリケーションへの攻撃を遮断する装置なので，暗号化されていない通信を見られる場所に置く必要があります。本問の WAF には復号機能がないため，HTTPS が流れる a や b では中身を検査できません。SSL アクセラレータで復号された後，Web サーバに届く前の c に置けば平文の HTTP を検査できるので，ウが正解です。d は Web サーバとデータベースサーバの間のデータベースアクセス通信であり，HTTP の攻撃を検査する場所として適切ではありません。",
       "explanationSource": "ai",
-      "explanationVerified": false
+      "explanationVerified": false,
+      "figureImage": "figures/fe-r5-koukai-a-q10.png"
     },
     {
       "id": "fe-r5-koukai-a-q11",
@@ -286,7 +287,8 @@
       ],
       "explanation": "最初に ③ から ⑤ へ進むのは m ＜ n のときなので，⑤ で n は b－a になります。次に ③ から ④ へ進むのは m ＞ n のときで，④ で m は a－(b－a)＝2a－b になります。その後 ② で m と n が等しくなって ⑥ に進むので，2a－b＝b－a，すなわち 3a＝2b が成り立ち，エが正解です。アの a＝2b では最初の比較で m ＞ n となり ④ に進んでしまい，イやウの関係では 3 回目の比較で m と n が等しくなりません。",
       "explanationSource": "ai",
-      "explanationVerified": false
+      "explanationVerified": false,
+      "figureImage": "figures/fe-r5-koukai-a-q11.png"
     },
     {
       "id": "fe-r5-koukai-a-q12",
@@ -337,7 +339,8 @@
       ],
       "explanation": "A の後の 3 本の経路は B→E が 11 日，C が 8 日，D→F が 8 日なので，クリティカルパスは A→B→E→G（4＋6＋5＋5＝20 日）です。A の遅れを取り戻すにはクリティカルパス上の B，E，G のいずれかを 1 日短縮する必要があり，費用増加率は B が 6，E が 2.5，G が 5 なので，最も安い E を短縮すべきです。したがってエが正解です。C や D はクリティカルパス上にないため，短縮しても全体の所要日数は縮まりません。",
       "explanationSource": "ai",
-      "explanationVerified": false
+      "explanationVerified": false,
+      "figureImage": "figures/fe-r5-koukai-a-q13.png"
     },
     {
       "id": "fe-r5-koukai-a-q14",

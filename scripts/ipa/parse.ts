@@ -34,6 +34,8 @@ import { SOURCES, type Source } from "./sources.ts";
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "../..");
 const OUT_ROOT = resolve(ROOT, "public/data/questions");
+/** 図の画像（figures.ts が生成）: public/data/figures/<questionId>.png */
+const FIGURES_ROOT = resolve(ROOT, "public/data/figures");
 /** OCR 済みテキスト（AP 午前など画像 PDF 用）: .cache/ipa/ocr/<pdf basename>.pages.json */
 const OCR_ROOT = resolve(CACHE_ROOT, "ocr");
 
@@ -42,6 +44,7 @@ interface ParseReport {
   count: number;
   withExplanations: number;
   withFigure: number;
+  withFigureImage: number;
   failed: number[];
   warnings: string[];
 }
@@ -315,6 +318,9 @@ function buildQuestion(raw: RawQuestion, ctx: BuildContext): Question | undefine
     q.text = q.text.replace(/\n*（図はPDF参照）\s*$/, "");
     delete q.figureNote;
   }
+  // 図の画像（scripts/ipa/figures.ts で生成済みなら参照を入れる）
+  if (q.hasFigure && existsSync(resolve(FIGURES_ROOT, `${q.id}.png`))) q.figureImage = `figures/${q.id}.png`;
+  else delete q.figureImage;
   // 検証
   const minChoices = isB ? 2 : 4;
   const maxChoices = isB ? 10 : 4;
@@ -344,7 +350,7 @@ async function loadAnswerLines(source: Source, questionPages: PageLine[], answer
 }
 
 export async function parseSet(source: Source, generatedAt: string): Promise<{ set: QuestionSet; report: ParseReport }> {
-  const report: ParseReport = { setId: source.setId, count: 0, withExplanations: 0, withFigure: 0, failed: [], warnings: [] };
+  const report: ParseReport = { setId: source.setId, count: 0, withExplanations: 0, withFigure: 0, withFigureImage: 0, failed: [], warnings: [] };
   const files = await fetchSource(source);
   const { pages, ocr } = await loadPages(files.question);
   if (ocr) report.warnings.push("OCR テキストを使用");
@@ -378,6 +384,8 @@ export async function parseSet(source: Source, generatedAt: string): Promise<{ s
   report.count = questions.length;
   report.withExplanations = questions.filter((q) => q.explanation).length;
   report.withFigure = questions.filter((q) => q.hasFigure).length;
+  report.withFigureImage = questions.filter((q) => q.figureImage).length;
+  if (report.withFigureImage < report.withFigure) report.warnings.push(`図あり ${report.withFigure} 問のうち画像が無いものが ${report.withFigure - report.withFigureImage} 問（scripts/ipa/figures.ts を実行）`);
 
   const set: QuestionSet = {
     id: source.setId,
@@ -444,7 +452,7 @@ async function main(): Promise<void> {
       }
       writeJson(resolve(OUT_ROOT, source.cert, `${source.setId}.json`), set);
       reports.push(report);
-      console.log(`  問数 ${report.count} / 解説 ${report.withExplanations} / 図 ${report.withFigure} / 失敗 [${report.failed.join(",")}]`);
+      console.log(`  問数 ${report.count} / 解説 ${report.withExplanations} / 図 ${report.withFigure}（画像 ${report.withFigureImage}） / 失敗 [${report.failed.join(",")}]`);
       for (const w of report.warnings) console.log(`  ! ${w}`);
     } catch (e) {
       hadError = true;
@@ -454,8 +462,8 @@ async function main(): Promise<void> {
   const index = buildIndex(generatedAt);
   writeJson(resolve(OUT_ROOT, "index.json"), index);
   console.log(`\nindex.json: ${index.sets.length} sets`);
-  console.log(["setId", "count", "expl", "fig", "failed"].join("\t"));
-  for (const r of reports) console.log([r.setId, r.count, r.withExplanations, r.withFigure, r.failed.join(",") || "-"].join("\t"));
+  console.log(["setId", "count", "expl", "fig", "img", "failed"].join("\t"));
+  for (const r of reports) console.log([r.setId, r.count, r.withExplanations, r.withFigure, r.withFigureImage, r.failed.join(",") || "-"].join("\t"));
   if (hadError) process.exit(1);
 }
 

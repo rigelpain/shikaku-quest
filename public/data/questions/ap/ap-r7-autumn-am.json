@@ -9,7 +9,7 @@
   "sourceUrl": "https://www.ipa.go.jp/shiken/mondai-kaiotu/nl10bi0000009lh8-att/2025r07a_ap_am_qs.pdf",
   "answerUrl": "https://www.ipa.go.jp/shiken/mondai-kaiotu/nl10bi0000009lh8-att/2025r07a_ap_am_ans.pdf",
   "license": "IPA: 出典明記で許諾不要",
-  "generatedAt": "2026-10-28T06:46:04.416Z",
+  "generatedAt": "2026-10-28T07:18:58.102Z",
   "questions": [
     {
       "id": "ap-r7-autumn-am-q01",
@@ -495,7 +495,8 @@
         "論理回路",
         "タイミングチャート",
         "NAND"
-      ]
+      ],
+      "figureImage": "figures/ap-r7-autumn-am-q22.png"
     },
     {
       "id": "ap-r7-autumn-am-q23",

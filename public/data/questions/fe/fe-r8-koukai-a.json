@@ -9,7 +9,7 @@
   "sourceUrl": "https://www.ipa.go.jp/shiken/mondai-kaiotu/sg_fe/koukai/rcu1hd0000012qj6-att/2026r08_fe_kamoku_a_qs.pdf",
   "answerUrl": "https://www.ipa.go.jp/shiken/mondai-kaiotu/sg_fe/koukai/rcu1hd0000012qj6-att/2026r08_fe_kamoku_a_ans.pdf",
   "license": "IPA: 出典明記で許諾不要",
-  "generatedAt": "2026-10-28T06:46:04.416Z",
+  "generatedAt": "2026-10-28T07:18:58.102Z",
   "questions": [
     {
       "id": "fe-r8-koukai-a-q01",
@@ -159,7 +159,8 @@
       ],
       "explanation": "同じ信号を両方の入力に与えた NAND は NOT として働くので，1 段目で NOT A と NOT B が作られます。2 段目の NAND で NOT(NOT A AND NOT B)＝A OR B となり，3 段目の NAND がそれを反転するので Y＝NOT(A OR B)，すなわち NOR です。したがって Y は A と B がともに 0 のときだけ 1 になり，これに合うチャートはイです。他の選択肢は A または B が 1 の期間に Y が 1 になる箇所があり，NOR の動作と一致しません。",
       "explanationSource": "ai",
-      "explanationVerified": false
+      "explanationVerified": false,
+      "figureImage": "figures/fe-r8-koukai-a-q06.png"
     },
     {
       "id": "fe-r8-koukai-a-q07",

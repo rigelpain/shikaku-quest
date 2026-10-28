@@ -9,7 +9,7 @@
   "sourceUrl": "https://www.ipa.go.jp/shiken/mondai-kaiotu/nl10bi0000009lh8-att/2025r07h_ap_am_qs.pdf",
   "answerUrl": "https://www.ipa.go.jp/shiken/mondai-kaiotu/nl10bi0000009lh8-att/2025r07h_ap_am_ans.pdf",
   "license": "IPA: 出典明記で許諾不要",
-  "generatedAt": "2026-10-28T06:46:04.416Z",
+  "generatedAt": "2026-10-28T07:18:58.102Z",
   "questions": [
     {
       "id": "ap-r7-spring-am-q01",
@@ -159,7 +159,8 @@
       ],
       "explanation": "まず 1 を追加すると 2 の左の子になり，この時点では全ての節で左右の高さの差が 1 以内なので回転は起きません。次に 0 を追加すると 1 の左の子になり，節 2 の左部分木の高さが 2，右部分木が 0 となって AVL 木の条件を破ります。左の左に伸びた LL 型なので，節 2 を右回転して 1 を親，0 と 2 をその子にすると，3 の左の子が 1 になります。右部分木 7（左の子 6）は変わらないので，ウが正解です。アやイは根まで組み替えた形で，1 回の回転で得られる木ではなく，エは右部分木が 6 と 7 に組み替わっており元の木と一致しません。",
       "explanationSource": "ai",
-      "explanationVerified": false
+      "explanationVerified": false,
+      "figureImage": "figures/ap-r7-spring-am-q06.png"
     },
     {
       "id": "ap-r7-spring-am-q07",
@@ -332,7 +333,8 @@
       ],
       "explanation": "装置単体の稼働率を p とすると，並列部分の稼働率は 1 － (1 － p)^2 ＝ 2p － p^2，これに直列の装置を掛けてシステム全体は (2p － p^2) × p ＝ 2p^2 － p^3 になります。p ＝ 0.5 では 0.5 － 0.125 ＝ 0.375 となり p より小さく，2p^2 － p^3 ＝ p を満たすのは p ＝ 1 だけなので，曲線は区間内で常に対角線の下側を通り (1, 1) で接します。これに該当するのはエです。ウは 0.5 で対角線と交わる形，アは常に対角線より上，イは直線で，いずれも式の形と一致しません。",
       "explanationSource": "ai",
-      "explanationVerified": false
+      "explanationVerified": false,
+      "figureImage": "figures/ap-r7-spring-am-q13.png"
     },
     {
       "id": "ap-r7-spring-am-q14",
@@ -636,7 +638,8 @@
       "figureNote": "PDF 15 ページのクラス図を参照",
       "explanation": "“付加情報”は“顧客”に注文主として 1 対多で所有されるので，付加情報表には顧客を参照する外部キーを置き，顧客表に対する参照制約を指定します。したがってウが正解です。注文と付加情報は注文側が 0..1 の付加情報を指定するので，参照制約を指定するのは注文表の側であり，エは向きが逆です。1 人の顧客が複数の付加情報をもてるため，イのように行数が一致する必要はなく，制約 1 により指定送付先は注文主が注文の顧客と一致する行に限られるので，アのようにどの行でも選べるわけではありません。",
       "explanationSource": "ai",
-      "explanationVerified": false
+      "explanationVerified": false,
+      "figureImage": "figures/ap-r7-spring-am-q25.png"
     },
     {
       "id": "ap-r7-spring-am-q26",

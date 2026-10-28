@@ -12,6 +12,8 @@ export interface Question {
   tags?: string[];
   hasFigure: boolean;
   figureNote?: string;
+  /** 図の画像。public/data/ からの相対パス（例 "figures/fe-r8-koukai-a-q06.png"） */
+  figureImage?: string;
   explanation?: string;
   explanationSource?: "ai";
   explanationVerified?: boolean;

@@ -9,7 +9,7 @@
   "sourceUrl": "https://www.ipa.go.jp/shiken/mondai-kaiotu/m42obm000000afqx-att/2024r06a_ap_am_qs.pdf",
   "answerUrl": "https://www.ipa.go.jp/shiken/mondai-kaiotu/m42obm000000afqx-att/2024r06a_ap_am_ans.pdf",
   "license": "IPA: 出典明記で許諾不要",
-  "generatedAt": "2026-10-28T06:46:04.416Z",
+  "generatedAt": "2026-10-28T07:18:58.102Z",
   "questions": [
     {
       "id": "ap-r6-autumn-am-q01",
@@ -462,7 +462,8 @@
         "論理回路",
         "タイミングチャート",
         "AND"
-      ]
+      ],
+      "figureImage": "figures/ap-r6-autumn-am-q21.png"
     },
     {
       "id": "ap-r6-autumn-am-q22",
@@ -633,7 +634,8 @@
         "UML",
         "概念データモデル",
         "多重度"
-      ]
+      ],
+      "figureImage": "figures/ap-r6-autumn-am-q29.png"
     },
     {
       "id": "ap-r6-autumn-am-q30",

@@ -9,7 +9,7 @@
   "sourceUrl": "https://www.ipa.go.jp/shiken/mondai-kaiotu/sg_fe/koukai/tbl5kb0000005r9r-att/2025r07_fe_kamoku_a_qs.pdf",
   "answerUrl": "https://www.ipa.go.jp/shiken/mondai-kaiotu/sg_fe/koukai/tbl5kb0000005r9r-att/2025r07_fe_kamoku_a_ans.pdf",
   "license": "IPA: 出典明記で許諾不要",
-  "generatedAt": "2026-10-28T06:46:04.416Z",
+  "generatedAt": "2026-10-28T07:18:58.102Z",
   "questions": [
     {
       "id": "fe-r7-koukai-a-q01",
@@ -86,7 +86,8 @@
       ],
       "explanation": "2 分探索木では，どの節点についても「左部分木の値 ＜ その節点の値 ＜ 右部分木の値」が成り立ちます。したがって図の木を左の子，自分，右の子の順（中間順）にたどった d，b，e，a，f，c，g が昇順になり，イが正解です。アは根の a を最小としており，ウとエは各部分木の大小関係を満たしていません。",
       "explanationSource": "ai",
-      "explanationVerified": false
+      "explanationVerified": false,
+      "figureImage": "figures/fe-r7-koukai-a-q03.png"
     },
     {
       "id": "fe-r7-koukai-a-q04",
@@ -362,7 +363,8 @@
       "figureNote": "PDF 8 ページのアローダイアグラムを参照",
       "explanation": "各結合点に到達する最も遅い時刻を順に求めます。A 完了が 3 日目，B と E（ダミー経由）の合流点は 3＋6＝9 日目です。C の終点には F 経由 3＋14＝17，G とダミー経由 9＋11＝20，C 経由 9＋8＝17 が集まるので 20 日目になります。D の終点は D 経由 20＋6＝26 と H 経由 9＋15＝24 のうち 26 日目で，最後に I の 5 日を加えると 31 日となり，エが正解です。ウの 29 日は G のダミー作業を見落とした場合などの値です。",
       "explanationSource": "ai",
-      "explanationVerified": false
+      "explanationVerified": false,
+      "figureImage": "figures/fe-r7-koukai-a-q14.png"
     },
     {
       "id": "fe-r7-koukai-a-q15",

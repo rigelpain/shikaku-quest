@@ -3,6 +3,7 @@
  *  - 各セットが QuestionSetSchema を満たす（choices 数、answer 範囲、citation 形式、major/middle の対応）
  *  - 全セット横断で id がユニーク
  *  - index.json の entries と実ファイル（count, withExplanations, title など）が一致
+ *  - hasFigure の問に figureImage があり、その PNG が public/data/ に存在する
  * 終了コード 0 = OK, 1 = NG。
  *
  * 使い方: pnpm --config.verify-deps-before-run=false tsx scripts/ipa/validate.ts
@@ -14,6 +15,7 @@ import { QuestionIndexSchema, QuestionSetSchema, type QuestionSet } from "../../
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "../..");
 const DATA = resolve(ROOT, "public/data/questions");
+const PUBLIC_DATA = resolve(ROOT, "public/data");
 
 function main(): number {
   const errors: string[] = [];
@@ -79,11 +81,13 @@ function main(): number {
       if (!q.citation.endsWith(` 問${q.number}`)) errors.push(`${entry.file}: citation の問番号が不一致 ${q.id}`);
       if (q.choices.some((c) => /^[ア-コ]\s/.test(c))) errors.push(`${entry.file}: 選択肢にラベルが残っている ${q.id}`);
       if (q.hasFigure && !/図はPDF参照/.test(q.text)) errors.push(`${entry.file}: hasFigure なのに本文に「（図はPDF参照）」がない ${q.id}`);
+      if (q.hasFigure && !q.figureImage) errors.push(`${entry.file}: hasFigure なのに figureImage がない ${q.id}（scripts/ipa/figures.ts → parse.ts を実行）`);
+      if (q.figureImage && !existsSync(resolve(PUBLIC_DATA, q.figureImage))) errors.push(`${entry.file}: figureImage のファイルが無い ${q.id}: public/data/${q.figureImage}`);
       if (q.explanation && q.explanation.length < 30) errors.push(`${entry.file}: explanation が短すぎる ${q.id}`);
     }
     totalQ += set.questions.length;
     totalExpl += withExpl;
-    info.push(`${entry.file}: ${set.questions.length} 問 / 解説 ${withExpl} / 図 ${set.questions.filter((q) => q.hasFigure).length}`);
+    info.push(`${entry.file}: ${set.questions.length} 問 / 解説 ${withExpl} / 図 ${set.questions.filter((q) => q.hasFigure).length}（画像 ${set.questions.filter((q) => q.figureImage).length}）`);
   }
   for (const l of info) console.log(l);
   console.log(`合計 ${index.sets.length} セット / ${totalQ} 問 / 解説 ${totalExpl}`);

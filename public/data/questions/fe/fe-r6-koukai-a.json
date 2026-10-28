@@ -9,7 +9,7 @@
   "sourceUrl": "https://www.ipa.go.jp/shiken/mondai-kaiotu/sg_fe/koukai/eid2eo0000007g1d-att/2024r06_fe_kamoku_a_qs.pdf",
   "answerUrl": "https://www.ipa.go.jp/shiken/mondai-kaiotu/sg_fe/koukai/eid2eo0000007g1d-att/2024r06_fe_kamoku_a_ans.pdf",
   "license": "IPA: 出典明記で許諾不要",
-  "generatedAt": "2026-10-28T06:46:04.416Z",
+  "generatedAt": "2026-10-28T07:18:58.102Z",
   "questions": [
     {
       "id": "fe-r6-koukai-a-q01",
@@ -336,7 +336,8 @@
       ],
       "explanation": "A の完了は 30 日目です。B の終点は 35 日目，C の終点は C 経由の 60 日目と B からのダミー作業経由の 35 日目のうち遅い 60 日目，D の終点は D 経由の 50 日目と C からのダミー作業経由の 60 日目のうち遅い 60 日目になります。E，F，G の合流点は 35＋40＝75，60＋25＝85，60＋30＝90 のうち最も遅い 90 日目で，H の 30 日を加えると 120 日となり，ウが正解です。イの 115 日などはダミー作業を無視して D の終点を 50 日目として計算した場合の値です。",
       "explanationSource": "ai",
-      "explanationVerified": false
+      "explanationVerified": false,
+      "figureImage": "figures/fe-r6-koukai-a-q13.png"
     },
     {
       "id": "fe-r6-koukai-a-q14",
@@ -486,7 +487,8 @@
       "figureNote": "PDF 9 ページの散布図を参照",
       "explanation": "散布図の点が右下がりに分布しているので，x が増えると y が減る傾向，すなわち負の相関があると読み取れ，エが正解です。ウの正の相関であれば点は右上がりに並びます。点はおおむね直線的に並んでいるので 2 次回帰を使う必要はなくアは誤りで，x から y を推定する回帰式と y から x を推定する回帰式は一般に一致しないのでイも誤りです。",
       "explanationSource": "ai",
-      "explanationVerified": false
+      "explanationVerified": false,
+      "figureImage": "figures/fe-r6-koukai-a-q19.png"
     },
     {
       "id": "fe-r6-koukai-a-q20",

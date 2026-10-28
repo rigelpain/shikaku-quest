@@ -10,6 +10,8 @@ import { useCardsForCert } from "@/lib/data/hooks";
 import { addAttempt, upsertCard } from "@/lib/data/queries";
 import type { QuestionCardRow } from "@/lib/data/types";
 import { GRADE_LABEL, Rating, cardToRow, previewIntervals, rowToCard, schedule, type Grade } from "@/lib/fsrs";
+import { withBasePath } from "@/lib/base-path";
+import { figurePageOf } from "@/lib/questions/figure";
 import { useQuestionIndex, useQuestionSets } from "@/lib/questions/load";
 import { CHOICE_LABELS, type Question, type QuestionSet } from "@/lib/questions/types";
 import { seededShuffle } from "@/lib/seeded-shuffle";
@@ -276,6 +278,8 @@ function SessionRunner({
 
   const q = current.question;
   const progress = ((pos + (answered ? 1 : 0)) / queue.length) * 100;
+  const figurePage = figurePageOf(q);
+  const figureSrc = q.figureImage ? withBasePath(`/data/${q.figureImage}`) : null;
 
   return (
     <div className="mx-auto max-w-3xl">
@@ -302,7 +306,8 @@ function SessionRunner({
           </Badge>
           {q.hasFigure && (
             <Badge variant="outline" className="border-window-foreground/50 text-window-foreground">
-              図はPDF参照{q.pdfPage ? `（${q.pdfPage}ページ）` : ""}
+              {figureSrc ? "図あり" : "図はPDF参照"}
+              {figurePage ? `（PDF ${figurePage}ページ）` : ""}
             </Badge>
           )}
         </p>
@@ -310,6 +315,27 @@ function SessionRunner({
           {q.text}
         </Markdown>
       </div>
+
+      {figureSrc && (
+        <figure className="mt-3 rounded-lg border bg-card p-2">
+          <a href={figureSrc} target="_blank" rel="noreferrer" className="block" title="図を原寸で開く">
+            {/* 静的書き出し（images.unoptimized）なので next/image は使わず素の img で出す */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={figureSrc}
+              alt={`問${q.number}の図（出典PDF ${figurePage ?? q.pdfPage ?? "?"}ページ）`}
+              width={1200}
+              height={1697}
+              loading="lazy"
+              decoding="async"
+              className="h-auto w-full rounded bg-white"
+            />
+          </a>
+          <figcaption className="mt-1.5 text-xs text-muted-foreground">
+            出典PDFの{figurePage ? `${figurePage}ページ` : "該当ページ"}。タップ（クリック）で原寸表示
+          </figcaption>
+        </figure>
+      )}
 
       <ol className="mt-4 grid gap-2" aria-label="選択肢">
         {q.choices.map((choice, i) => {

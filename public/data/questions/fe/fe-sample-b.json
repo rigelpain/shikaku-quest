@@ -9,7 +9,7 @@
   "sourceUrl": "https://www.ipa.go.jp/shiken/syllabus/henkou/2022/gmcbt80000007cfs-att/fe_kamoku_b_set_sample_qs.pdf",
   "answerUrl": "https://www.ipa.go.jp/shiken/syllabus/henkou/2022/gmcbt80000007cfs-att/fe_kamoku_b_set_sample_ans.pdf",
   "license": "IPA: 出典明記で許諾不要",
-  "generatedAt": "2026-10-28T06:46:04.416Z",
+  "generatedAt": "2026-10-28T07:18:58.102Z",
   "questions": [
     {
       "id": "fe-sample-b-q01",
@@ -401,7 +401,8 @@
       "figureNote": "PDF 25 ページの図（三目並べの状態遷移）を参照",
       "explanation": "A が指す子は相手の手番の節なので，その子の評価値のうち最小のものを取ります。A の下の二つの自分の手番の節は，それぞれ引き分け（0）と勝ち（10）の葉を一つだけ持つので評価値は 0 と 10 になり，相手はその最小の 0 を選ぶので a は 0 です。B が指す子も相手の手番で，その子は自分の負けの葉（－10）と，引き分け（0）につながる自分の手番の節（評価値 0）なので，最小の －10 が b です。したがってアが正解です。ウやエのように a を 10 とするのは，相手が自分に有利な手を選んでくれると仮定した誤りで，イは相手が負けにできる手を見落としています。",
       "explanationSource": "ai",
-      "explanationVerified": false
+      "explanationVerified": false,
+      "figureImage": "figures/fe-sample-b-q15.png"
     },
     {
       "id": "fe-sample-b-q16",

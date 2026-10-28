@@ -9,7 +9,7 @@
   "sourceUrl": "https://www.ipa.go.jp/shiken/mondai-kaiotu/m42obm000000afqx-att/2024r06h_ap_am_qs.pdf",
   "answerUrl": "https://www.ipa.go.jp/shiken/mondai-kaiotu/m42obm000000afqx-att/2024r06h_ap_am_ans.pdf",
   "license": "IPA: 出典明記で許諾不要",
-  "generatedAt": "2026-10-28T06:46:04.416Z",
+  "generatedAt": "2026-10-28T07:18:58.102Z",
   "questions": [
     {
       "id": "ap-r6-spring-am-q01",
@@ -115,7 +115,8 @@
       "tags": [
         "流れ図",
         "繰返し"
-      ]
+      ],
+      "figureImage": "figures/ap-r6-spring-am-q05.png"
     },
     {
       "id": "ap-r6-spring-am-q06",
@@ -138,7 +139,8 @@
         "再帰",
         "木の走査"
       ],
-      "figureNote": "PDF 7 ページの 2 分木の図を参照"
+      "figureNote": "PDF 7 ページの 2 分木の図を参照",
+      "figureImage": "figures/ap-r6-spring-am-q06.png"
     },
     {
       "id": "ap-r6-spring-am-q07",
@@ -181,7 +183,8 @@
       "tags": [
         "ブロック転送",
         "メモリ"
-      ]
+      ],
+      "figureImage": "figures/ap-r6-spring-am-q08.png"
     },
     {
       "id": "ap-r6-spring-am-q09",
@@ -459,7 +462,8 @@
         "論理回路",
         "タイムチャート",
         "NAND"
-      ]
+      ],
+      "figureImage": "figures/ap-r6-spring-am-q21.png"
     },
     {
       "id": "ap-r6-spring-am-q22",
@@ -482,7 +486,8 @@
         "メモリ割当て",
         "画素"
       ],
-      "figureNote": "PDF 15 ページの画素とメモリの対応図を参照"
+      "figureNote": "PDF 15 ページの画素とメモリの対応図を参照",
+      "figureImage": "figures/ap-r6-spring-am-q22.png"
     },
     {
       "id": "ap-r6-spring-am-q23",
@@ -1016,7 +1021,8 @@
         "信頼度成長モデル",
         "ゴンペルツ曲線",
         "テスト"
-      ]
+      ],
+      "figureImage": "figures/ap-r6-spring-am-q47.png"
     },
     {
       "id": "ap-r6-spring-am-q48",
@@ -1102,7 +1108,8 @@
         "CPI",
         "SPI"
       ],
-      "figureNote": "PDF 27 ページの EVM のグラフを参照"
+      "figureNote": "PDF 27 ページの EVM のグラフを参照",
+      "figureImage": "figures/ap-r6-spring-am-q51.png"
     },
     {
       "id": "ap-r6-spring-am-q52",
@@ -1124,7 +1131,8 @@
       "tags": [
         "アローダイアグラム",
         "最早結合点時刻"
-      ]
+      ],
+      "figureImage": "figures/ap-r6-spring-am-q52.png"
     },
     {
       "id": "ap-r6-spring-am-q53",

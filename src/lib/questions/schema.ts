@@ -85,6 +85,8 @@ export const QuestionSchema = z
     /** 図・画像がないと解けない場合 true */
     hasFigure: z.boolean(),
     figureNote: z.string().optional(),
+    /** 図の画像。public/data/ からの相対パス（scripts/ipa/figures.ts が生成し parse.ts が埋める）。例 "figures/fe-r8-koukai-a-q06.png" */
+    figureImage: z.string().regex(/^figures\/[a-z0-9-]+\.png$/).optional(),
     /** 2〜5 文。正答の理由と、主な誤答が違う理由 */
     explanation: z.string().optional(),
     explanationSource: z.literal("ai").optional(),
@@ -100,7 +102,8 @@ export const QuestionSchema = z
     message: "explanationSource must be 'ai' when explanation is present",
     path: ["explanationSource"],
   })
-  .refine((q) => q.explanationVerified !== true, { message: "explanationVerified must be false", path: ["explanationVerified"] });
+  .refine((q) => q.explanationVerified !== true, { message: "explanationVerified must be false", path: ["explanationVerified"] })
+  .refine((q) => q.figureImage === undefined || q.hasFigure, { message: "figureImage requires hasFigure", path: ["figureImage"] });
 export type Question = z.infer<typeof QuestionSchema>;
 
 export const QuestionSetSchema = z
