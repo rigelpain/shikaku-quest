@@ -1,0 +1,295 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+  shikaku-quest デザイントークン
+  - 紙(background)と墨(foreground)の落ち着いた明るい基調。読みものが多いので白ベース。
+  - 藍(primary)は「冒険の書」の窓の色。金(gold)は達成・連続記録、朱(destructive)は締切接近。
+  - 本文は BIZ UDPGothic（UD書体）、見出しとカウントダウン数字は DotGothic16。
+*/
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-body), "BIZ UDPGothic", "Hiragino Sans", "Noto Sans JP", system-ui, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --font-heading: var(--font-sans);
+  --font-display: var(--font-display), "DotGothic16", var(--font-body), sans-serif;
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-gold: var(--gold);
+  --color-gold-foreground: var(--gold-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-window: var(--window);
+  --color-window-foreground: var(--window-foreground);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  --background: oklch(0.975 0.004 250);
+  --foreground: oklch(0.25 0.02 262);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.25 0.02 262);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.25 0.02 262);
+  --primary: oklch(0.4 0.15 266);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.945 0.008 255);
+  --secondary-foreground: oklch(0.3 0.03 262);
+  --muted: oklch(0.945 0.008 255);
+  --muted-foreground: oklch(0.52 0.02 262);
+  --accent: oklch(0.93 0.03 266);
+  --accent-foreground: oklch(0.36 0.14 266);
+  --destructive: oklch(0.56 0.19 30);
+  --border: oklch(0.9 0.01 255);
+  --input: oklch(0.9 0.01 255);
+  --ring: oklch(0.55 0.13 266);
+  --chart-1: oklch(0.45 0.15 266);
+  --chart-2: oklch(0.72 0.14 85);
+  --chart-3: oklch(0.6 0.13 155);
+  --chart-4: oklch(0.6 0.19 30);
+  --chart-5: oklch(0.62 0.1 220);
+  --gold: oklch(0.72 0.14 85);
+  --gold-foreground: oklch(0.3 0.08 85);
+  --success: oklch(0.55 0.13 155);
+  --success-foreground: oklch(0.99 0 0);
+  --window: oklch(0.36 0.15 266);
+  --window-foreground: oklch(0.99 0 0);
+  --radius: 0.5rem;
+  --sidebar: oklch(1 0 0);
+  --sidebar-foreground: oklch(0.25 0.02 262);
+  --sidebar-primary: oklch(0.4 0.15 266);
+  --sidebar-primary-foreground: oklch(0.99 0 0);
+  --sidebar-accent: oklch(0.93 0.03 266);
+  --sidebar-accent-foreground: oklch(0.36 0.14 266);
+  --sidebar-border: oklch(0.9 0.01 255);
+  --sidebar-ring: oklch(0.55 0.13 266);
+}
+
+.dark {
+  --background: oklch(0.2 0.05 275);
+  --foreground: oklch(0.95 0.01 255);
+  --card: oklch(0.25 0.05 275);
+  --card-foreground: oklch(0.95 0.01 255);
+  --popover: oklch(0.25 0.05 275);
+  --popover-foreground: oklch(0.95 0.01 255);
+  --primary: oklch(0.82 0.08 266);
+  --primary-foreground: oklch(0.2 0.05 275);
+  --secondary: oklch(0.31 0.05 275);
+  --secondary-foreground: oklch(0.95 0.01 255);
+  --muted: oklch(0.31 0.05 275);
+  --muted-foreground: oklch(0.74 0.02 262);
+  --accent: oklch(0.33 0.07 272);
+  --accent-foreground: oklch(0.92 0.04 266);
+  --destructive: oklch(0.7 0.17 30);
+  --border: oklch(1 0 0 / 14%);
+  --input: oklch(1 0 0 / 16%);
+  --ring: oklch(0.7 0.1 266);
+  --chart-1: oklch(0.8 0.09 266);
+  --chart-2: oklch(0.8 0.14 85);
+  --chart-3: oklch(0.72 0.13 155);
+  --chart-4: oklch(0.7 0.17 30);
+  --chart-5: oklch(0.72 0.1 220);
+  --gold: oklch(0.8 0.14 85);
+  --gold-foreground: oklch(0.2 0.05 85);
+  --success: oklch(0.7 0.13 155);
+  --success-foreground: oklch(0.15 0.03 155);
+  --window: oklch(0.24 0.08 272);
+  --window-foreground: oklch(0.98 0 0);
+  --sidebar: oklch(0.22 0.05 275);
+  --sidebar-foreground: oklch(0.95 0.01 255);
+  --sidebar-primary: oklch(0.82 0.08 266);
+  --sidebar-primary-foreground: oklch(0.2 0.05 275);
+  --sidebar-accent: oklch(0.33 0.07 272);
+  --sidebar-accent-foreground: oklch(0.92 0.04 266);
+  --sidebar-border: oklch(1 0 0 / 14%);
+  --sidebar-ring: oklch(0.7 0.1 266);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply font-sans;
+    /* 流動的な基本文字サイズ: スマホ 15.5px 〜 PC 17px */
+    font-size: clamp(0.97rem, 0.92rem + 0.25vw, 1.0625rem);
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body), "BIZ UDPGothic", "Hiragino Sans", "Noto Sans JP", system-ui, sans-serif;
+    line-height: 1.7;
+    font-feature-settings: "palt" 0;
+  }
+  h1, h2, h3, h4 {
+    line-height: 1.35;
+    text-wrap: balance;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  /* リキッドレイアウトの共通コンテナ: 画面幅から左右1remを引き、最大 72rem */
+  .page {
+    width: min(100% - 2rem, 72rem);
+    margin-inline: auto;
+  }
+  /* カード列: 18rem 以上のカードを入るだけ並べ、狭ければ1列 */
+  .liquid-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+  }
+  /* 冒険の書の窓: 藍の地に白の二重枠（唯一の「主役」要素） */
+  .rpg-window {
+    position: relative;
+    background: var(--window);
+    color: var(--window-foreground);
+    border: 2px solid var(--window-foreground);
+    border-radius: 6px;
+    box-shadow:
+      inset 0 0 0 2px var(--window),
+      inset 0 0 0 3px var(--window-foreground);
+    padding: clamp(1rem, 0.75rem + 1.5vw, 1.75rem);
+  }
+  .rpg-window a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .font-display {
+    font-family: var(--font-display), "DotGothic16", var(--font-body), sans-serif;
+    letter-spacing: 0.02em;
+  }
+  /* 数字を等幅で揃える（カウントダウンや集計） */
+  .tnum {
+    font-variant-numeric: tabular-nums;
+  }
+  /* 長文（問題文・テキスト）の読みやすい行長 */
+  .prose-ja {
+    max-width: 44em;
+    line-height: 1.85;
+    overflow-wrap: anywhere;
+  }
+  .prose-ja :is(h2, h3) {
+    margin-top: 1.75em;
+    margin-bottom: 0.6em;
+    font-weight: 700;
+  }
+  .prose-ja h2 {
+    font-size: 1.25em;
+    padding-bottom: 0.3em;
+    border-bottom: 1px solid var(--border);
+  }
+  .prose-ja h3 {
+    font-size: 1.1em;
+  }
+  .prose-ja p {
+    margin-block: 0.75em;
+  }
+  .prose-ja ul, .prose-ja ol {
+    padding-left: 1.4em;
+    margin-block: 0.75em;
+  }
+  .prose-ja ul { list-style: disc; }
+  .prose-ja ol { list-style: decimal; }
+  .prose-ja li { margin-block: 0.25em; }
+  .prose-ja code {
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+    background: var(--muted);
+    padding: 0.1em 0.35em;
+    border-radius: 4px;
+  }
+  .prose-ja pre {
+    font-family: var(--font-mono);
+    font-size: 0.88em;
+    line-height: 1.6;
+    background: var(--muted);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 0.9em 1em;
+    overflow-x: auto;
+    margin-block: 0.9em;
+    white-space: pre;
+  }
+  .prose-ja pre code {
+    background: transparent;
+    padding: 0;
+    font-size: 1em;
+  }
+  .prose-ja table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-block: 0.9em;
+    font-size: 0.95em;
+    display: block;
+    overflow-x: auto;
+  }
+  .prose-ja th, .prose-ja td {
+    border: 1px solid var(--border);
+    padding: 0.4em 0.7em;
+    text-align: left;
+    vertical-align: top;
+  }
+  .prose-ja th {
+    background: var(--muted);
+    font-weight: 700;
+  }
+  .prose-ja blockquote {
+    border-left: 3px solid var(--accent-foreground);
+    padding-left: 0.9em;
+    color: var(--muted-foreground);
+    margin-block: 0.9em;
+  }
+  .prose-ja hr {
+    border: 0;
+    border-top: 1px solid var(--border);
+    margin-block: 1.5em;
+  }
+  .prose-ja strong {
+    font-weight: 700;
+  }
+}
