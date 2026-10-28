@@ -19,6 +19,8 @@ import { DEADLINE_KIND_LABEL, type DeadlineKind } from "@/lib/data/types";
 import { countdownLabel, formatJa, formatMinutes, toDateKey, todayKey } from "@/lib/dates";
 import { buildUpcomingEvents, urgencyClass } from "@/lib/events";
 import { MinutesBarChart, type MinutesPoint } from "@/components/charts/minutes-bar-chart";
+import { IsoCubes } from "@/components/iso/iso-cubes";
+import { IsoProgress } from "@/components/iso/iso-progress";
 import { CertStatusBadge } from "@/components/cert-status-badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -71,49 +73,47 @@ export function DashboardView() {
 
   return (
     <>
-      {/* 冒険の書: 次のイベントまでのカウントダウン */}
-      <section className="rpg-window mb-5" aria-label="次の予定">
-        {certsLoading ? (
-          <Skeleton className="h-24 w-full bg-window-foreground/20" />
-        ) : hero ? (
-          <div className="flex flex-wrap items-end justify-between gap-4">
-            <div className="min-w-0">
-              <p className="text-sm opacity-90">
-                {hero.certShort ? `${hero.certShort} ・ ` : ""}
-                {hero.title}
-              </p>
-              <p className="font-display text-[clamp(2.4rem,1.6rem+3.5vw,4.2rem)] leading-none tnum">
-                {countdownLabel(hero.daysLeft)}
-              </p>
-              <p className="mt-1 text-sm opacity-90 tnum">{formatJa(hero.date)}</p>
-            </div>
-            <div className="flex flex-wrap gap-2">
-              <Button size="lg" variant="secondary" render={<Link href={due ? "/practice?mode=due" : "/practice"} />}>
-                {due ? `復習 ${due}問` : "演習を始める"}
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-window-foreground/60 bg-transparent text-window-foreground hover:bg-window-foreground/10 hover:text-window-foreground"
-                render={<Link href="/log" />}
-              >
-                学習を記録する
-              </Button>
-            </div>
+      {/* 次のイベントまでのカウントダウン */}
+      <section className="iso-panel mb-5" aria-label="次の予定">
+        <div className="flex items-center justify-between gap-4">
+          <div className="min-w-0 flex-1">
+            {certsLoading ? (
+              <Skeleton className="h-24 w-full bg-white/20" />
+            ) : hero ? (
+              <>
+                <p className="text-sm opacity-90">
+                  {hero.certShort ? `${hero.certShort} ・ ` : ""}
+                  {hero.title}
+                </p>
+                <p className="font-display text-[clamp(2.4rem,1.6rem+3.5vw,4.2rem)] leading-none tnum">
+                  {countdownLabel(hero.daysLeft)}
+                </p>
+                <p className="mt-1 text-sm opacity-90 tnum">{formatJa(hero.date)}</p>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  <Button size="lg" variant="light" render={<Link href="/practice" />}>
+                    {due ? `復習 ${due}問` : "演習を始める"}
+                  </Button>
+                  <Button size="lg" variant="light-outline" render={<Link href="/log" />}>
+                    学習を記録する
+                  </Button>
+                </div>
+              </>
+            ) : (
+              <>
+                <p className="font-display text-2xl">最初の資格を決めよう</p>
+                <p className="mt-2 text-sm opacity-90">
+                  「資格」から追いかける資格を勉強中にすると、試験日までのカウントダウンがここに出ます。
+                </p>
+                <div className="mt-4">
+                  <Button variant="light" render={<Link href="/certs" />}>
+                    資格を選ぶ
+                  </Button>
+                </div>
+              </>
+            )}
           </div>
-        ) : (
-          <div>
-            <p className="font-display text-2xl">冒険の書をひらく</p>
-            <p className="mt-2 text-sm opacity-90">
-              まず「資格」から追いかける資格を勉強中にすると、試験日までのカウントダウンがここに出ます。
-            </p>
-            <div className="mt-4">
-              <Button variant="secondary" render={<Link href="/certs" />}>
-                資格を選ぶ
-              </Button>
-            </div>
-          </div>
-        )}
+          <IsoCubes className="hidden w-36 shrink-0 sm:block md:w-44 lg:w-52" />
+        </div>
       </section>
 
       {/* 今日の数字 */}
@@ -197,13 +197,17 @@ function StatTile({
       <p className="mt-1 font-display text-[clamp(1.5rem,1.2rem+1vw,2rem)] leading-none tnum">{value}</p>
       {sub && <p className="mt-1 text-xs text-muted-foreground">{sub}</p>}
       {progress !== undefined && (
-        <div className="mt-2 h-1.5 w-full overflow-hidden rounded-full bg-muted" aria-hidden>
-          <div className={cn("h-full", progress >= 1 ? "bg-success" : "bg-primary")} style={{ width: `${progress * 100}%` }} />
-        </div>
+        <IsoProgress
+          filled={progress * 10}
+          total={10}
+          tone={progress >= 1 ? "mint" : "primary"}
+          label={`達成 ${Math.round(progress * 100)}%`}
+          className="mt-3 h-9 w-auto max-w-full"
+        />
       )}
     </>
   );
-  const cls = "block rounded-lg border bg-card p-4";
+  const cls = "tile block p-4";
   return href ? (
     <Link href={href} className={cn(cls, "transition-colors hover:bg-accent/40")}>
       {body}

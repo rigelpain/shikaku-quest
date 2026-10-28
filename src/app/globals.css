@@ -5,18 +5,18 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
-  shikaku-quest デザイントークン
-  - 紙(background)と墨(foreground)の落ち着いた明るい基調。読みものが多いので白ベース。
-  - 藍(primary)は「冒険の書」の窓の色。金(gold)は達成・連続記録、朱(destructive)は締切接近。
-  - 本文は BIZ UDPGothic（UD書体）、見出しとカウントダウン数字は DotGothic16。
+  shikaku-quest デザイントークン（アイソメトリック調）
+  - 立体感は「ぼかし影」ではなく右下へ落ちる「べた塗りのオフセット影」で出す（光は左上から、30°の等角投影）
+  - 主役は藍のグラデーションパネルと、積み上げブロック（上面＝明・左面＝中・右面＝暗の3面）
+  - 本文は BIZ UDPGothic（UD書体）、見出しと数字は Zen Kaku Gothic New の太字
 */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-body), "BIZ UDPGothic", "Hiragino Sans", "Noto Sans JP", system-ui, sans-serif;
   --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-  --font-heading: var(--font-sans);
-  --font-display: var(--font-display), "DotGothic16", var(--font-body), sans-serif;
+  --font-heading: var(--font-display), "Zen Kaku Gothic New", var(--font-body), sans-serif;
+  --font-display: var(--font-display), "Zen Kaku Gothic New", var(--font-body), sans-serif;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -42,6 +42,7 @@
   --color-secondary: var(--secondary);
   --color-primary-foreground: var(--primary-foreground);
   --color-primary: var(--primary);
+  --color-primary-deep: var(--primary-deep);
   --color-popover-foreground: var(--popover-foreground);
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
@@ -52,6 +53,7 @@
   --color-success-foreground: var(--success-foreground);
   --color-window: var(--window);
   --color-window-foreground: var(--window-foreground);
+  --color-shadow-solid: var(--shadow-solid);
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
@@ -62,85 +64,103 @@
 }
 
 :root {
-  --background: oklch(0.975 0.004 250);
-  --foreground: oklch(0.25 0.02 262);
+  --background: oklch(0.97 0.007 255);
+  --foreground: oklch(0.26 0.03 265);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.25 0.02 262);
+  --card-foreground: oklch(0.26 0.03 265);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.25 0.02 262);
-  --primary: oklch(0.4 0.15 266);
+  --popover-foreground: oklch(0.26 0.03 265);
+  --primary: oklch(0.52 0.2 268);
+  --primary-deep: oklch(0.4 0.17 268);
   --primary-foreground: oklch(0.99 0 0);
-  --secondary: oklch(0.945 0.008 255);
-  --secondary-foreground: oklch(0.3 0.03 262);
-  --muted: oklch(0.945 0.008 255);
-  --muted-foreground: oklch(0.52 0.02 262);
-  --accent: oklch(0.93 0.03 266);
-  --accent-foreground: oklch(0.36 0.14 266);
-  --destructive: oklch(0.56 0.19 30);
-  --border: oklch(0.9 0.01 255);
-  --input: oklch(0.9 0.01 255);
-  --ring: oklch(0.55 0.13 266);
-  --chart-1: oklch(0.45 0.15 266);
-  --chart-2: oklch(0.72 0.14 85);
-  --chart-3: oklch(0.6 0.13 155);
-  --chart-4: oklch(0.6 0.19 30);
-  --chart-5: oklch(0.62 0.1 220);
-  --gold: oklch(0.72 0.14 85);
-  --gold-foreground: oklch(0.3 0.08 85);
-  --success: oklch(0.55 0.13 155);
+  --secondary: oklch(0.94 0.012 258);
+  --secondary-foreground: oklch(0.3 0.04 265);
+  --muted: oklch(0.94 0.012 258);
+  --muted-foreground: oklch(0.52 0.025 265);
+  --accent: oklch(0.93 0.04 268);
+  --accent-foreground: oklch(0.42 0.17 268);
+  --destructive: oklch(0.62 0.2 28);
+  --border: oklch(0.89 0.012 260);
+  --input: oklch(0.89 0.012 260);
+  --ring: oklch(0.6 0.16 268);
+  --chart-1: oklch(0.52 0.2 268);
+  --chart-2: oklch(0.78 0.15 80);
+  --chart-3: oklch(0.68 0.14 165);
+  --chart-4: oklch(0.62 0.2 28);
+  --chart-5: oklch(0.65 0.12 220);
+  --gold: oklch(0.8 0.15 80);
+  --gold-foreground: oklch(0.38 0.1 70);
+  --success: oklch(0.62 0.14 165);
   --success-foreground: oklch(0.99 0 0);
-  --window: oklch(0.36 0.15 266);
+  --window: oklch(0.52 0.2 268);
   --window-foreground: oklch(0.99 0 0);
-  --radius: 0.5rem;
+  --shadow-solid: oklch(0.86 0.045 268);
+  --radius: 0.625rem;
   --sidebar: oklch(1 0 0);
-  --sidebar-foreground: oklch(0.25 0.02 262);
-  --sidebar-primary: oklch(0.4 0.15 266);
+  --sidebar-foreground: oklch(0.26 0.03 265);
+  --sidebar-primary: oklch(0.52 0.2 268);
   --sidebar-primary-foreground: oklch(0.99 0 0);
-  --sidebar-accent: oklch(0.93 0.03 266);
-  --sidebar-accent-foreground: oklch(0.36 0.14 266);
-  --sidebar-border: oklch(0.9 0.01 255);
-  --sidebar-ring: oklch(0.55 0.13 266);
+  --sidebar-accent: oklch(0.93 0.04 268);
+  --sidebar-accent-foreground: oklch(0.42 0.17 268);
+  --sidebar-border: oklch(0.89 0.012 260);
+  --sidebar-ring: oklch(0.6 0.16 268);
+  /* ブロックの3面 */
+  --iso-top: oklch(0.72 0.15 268);
+  --iso-left: oklch(0.52 0.2 268);
+  --iso-right: oklch(0.4 0.17 268);
 }
 
 .dark {
-  --background: oklch(0.2 0.05 275);
+  --background: oklch(0.17 0.03 265);
   --foreground: oklch(0.95 0.01 255);
-  --card: oklch(0.25 0.05 275);
+  --card: oklch(0.22 0.035 265);
   --card-foreground: oklch(0.95 0.01 255);
-  --popover: oklch(0.25 0.05 275);
+  --popover: oklch(0.22 0.035 265);
   --popover-foreground: oklch(0.95 0.01 255);
-  --primary: oklch(0.82 0.08 266);
-  --primary-foreground: oklch(0.2 0.05 275);
-  --secondary: oklch(0.31 0.05 275);
+  --primary: oklch(0.7 0.15 268);
+  --primary-deep: oklch(0.5 0.17 268);
+  --primary-foreground: oklch(0.16 0.03 265);
+  --secondary: oklch(0.29 0.04 265);
   --secondary-foreground: oklch(0.95 0.01 255);
-  --muted: oklch(0.31 0.05 275);
+  --muted: oklch(0.29 0.04 265);
   --muted-foreground: oklch(0.74 0.02 262);
-  --accent: oklch(0.33 0.07 272);
-  --accent-foreground: oklch(0.92 0.04 266);
-  --destructive: oklch(0.7 0.17 30);
-  --border: oklch(1 0 0 / 14%);
+  --accent: oklch(0.32 0.07 268);
+  --accent-foreground: oklch(0.9 0.06 268);
+  --destructive: oklch(0.72 0.17 28);
+  --border: oklch(1 0 0 / 13%);
   --input: oklch(1 0 0 / 16%);
-  --ring: oklch(0.7 0.1 266);
-  --chart-1: oklch(0.8 0.09 266);
-  --chart-2: oklch(0.8 0.14 85);
-  --chart-3: oklch(0.72 0.13 155);
-  --chart-4: oklch(0.7 0.17 30);
-  --chart-5: oklch(0.72 0.1 220);
-  --gold: oklch(0.8 0.14 85);
-  --gold-foreground: oklch(0.2 0.05 85);
-  --success: oklch(0.7 0.13 155);
-  --success-foreground: oklch(0.15 0.03 155);
-  --window: oklch(0.24 0.08 272);
+  --ring: oklch(0.7 0.12 268);
+  --chart-1: oklch(0.74 0.14 268);
+  --chart-2: oklch(0.82 0.14 80);
+  --chart-3: oklch(0.74 0.13 165);
+  --chart-4: oklch(0.72 0.17 28);
+  --chart-5: oklch(0.74 0.1 220);
+  --gold: oklch(0.82 0.14 80);
+  --gold-foreground: oklch(0.2 0.05 80);
+  --success: oklch(0.72 0.13 165);
+  --success-foreground: oklch(0.15 0.03 165);
+  --window: oklch(0.45 0.18 268);
   --window-foreground: oklch(0.98 0 0);
-  --sidebar: oklch(0.22 0.05 275);
+  --shadow-solid: oklch(0.11 0.03 265);
+  --sidebar: oklch(0.2 0.03 265);
   --sidebar-foreground: oklch(0.95 0.01 255);
-  --sidebar-primary: oklch(0.82 0.08 266);
-  --sidebar-primary-foreground: oklch(0.2 0.05 275);
-  --sidebar-accent: oklch(0.33 0.07 272);
-  --sidebar-accent-foreground: oklch(0.92 0.04 266);
-  --sidebar-border: oklch(1 0 0 / 14%);
-  --sidebar-ring: oklch(0.7 0.1 266);
+  --sidebar-primary: oklch(0.7 0.15 268);
+  --sidebar-primary-foreground: oklch(0.16 0.03 265);
+  --sidebar-accent: oklch(0.32 0.07 268);
+  --sidebar-accent-foreground: oklch(0.9 0.06 268);
+  --sidebar-border: oklch(1 0 0 / 13%);
+  --sidebar-ring: oklch(0.7 0.12 268);
 }
+
+/* ブロックの色（上面・左面・右面） */
+.iso-primary { --iso-top: oklch(0.74 0.15 268); --iso-left: oklch(0.54 0.2 268); --iso-right: oklch(0.41 0.17 268); }
+.iso-gold    { --iso-top: oklch(0.9 0.14 88);   --iso-left: oklch(0.78 0.16 75);  --iso-right: oklch(0.64 0.15 65); }
+.iso-mint    { --iso-top: oklch(0.86 0.12 165); --iso-left: oklch(0.7 0.15 165);  --iso-right: oklch(0.55 0.13 165); }
+.iso-coral   { --iso-top: oklch(0.82 0.13 30);  --iso-left: oklch(0.66 0.19 28);  --iso-right: oklch(0.52 0.17 28); }
+.iso-ink     { --iso-top: oklch(0.45 0.03 265); --iso-left: oklch(0.3 0.03 265);  --iso-right: oklch(0.22 0.03 265); }
+.iso-ghost   { --iso-top: oklch(0.95 0.01 260); --iso-left: oklch(0.9 0.012 260); --iso-right: oklch(0.84 0.015 260); }
+.dark .iso-ghost { --iso-top: oklch(0.36 0.03 265); --iso-left: oklch(0.3 0.03 265); --iso-right: oklch(0.25 0.03 265); }
+.iso-panel .iso-ghost { --iso-top: rgb(255 255 255 / 0.4); --iso-left: rgb(255 255 255 / 0.25); --iso-right: rgb(255 255 255 / 0.15); }
 
 @layer base {
   * {
@@ -156,7 +176,6 @@
     @apply bg-background text-foreground;
     font-family: var(--font-body), "BIZ UDPGothic", "Hiragino Sans", "Noto Sans JP", system-ui, sans-serif;
     line-height: 1.7;
-    font-feature-settings: "palt" 0;
   }
   h1, h2, h3, h4 {
     line-height: 1.35;
@@ -182,30 +201,58 @@
     gap: 1rem;
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
   }
-  /* 冒険の書の窓: 藍の地に白の二重枠（唯一の「主役」要素） */
-  .rpg-window {
-    position: relative;
-    background: var(--window);
-    color: var(--window-foreground);
-    border: 2px solid var(--window-foreground);
-    border-radius: 6px;
-    box-shadow:
-      inset 0 0 0 2px var(--window),
-      inset 0 0 0 3px var(--window-foreground);
-    padding: clamp(1rem, 0.75rem + 1.5vw, 1.75rem);
-  }
-  .rpg-window a {
-    color: inherit;
-    text-decoration: underline;
-    text-underline-offset: 3px;
-  }
   .font-display {
-    font-family: var(--font-display), "DotGothic16", var(--font-body), sans-serif;
-    letter-spacing: 0.02em;
+    font-family: var(--font-display), "Zen Kaku Gothic New", var(--font-body), sans-serif;
+    font-weight: 900;
+    letter-spacing: -0.01em;
   }
   /* 数字を等幅で揃える（カウントダウンや集計） */
   .tnum {
     font-variant-numeric: tabular-nums;
+  }
+  /* 等角グリッド（装飾） */
+  .iso-grid {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='23.094' viewBox='0 0 40 23.094'%3E%3Cpath d='M0 0L40 23.094M0 23.094L40 0' stroke='white' stroke-width='1' fill='none'/%3E%3C/svg%3E");
+    background-size: 40px 23.094px;
+  }
+  /* 主役のパネル: 藍のグラデーションに等角グリッド、右下へべた塗りの影 */
+  .iso-panel {
+    position: relative;
+    isolation: isolate;
+    color: var(--window-foreground);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-deep) 100%);
+    border-radius: 12px;
+    box-shadow: 8px 8px 0 0 var(--shadow-solid);
+    padding: clamp(1.1rem, 0.8rem + 1.6vw, 2rem);
+    overflow: hidden;
+  }
+  .iso-panel::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    opacity: 0.14;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='23.094' viewBox='0 0 40 23.094'%3E%3Cpath d='M0 0L40 23.094M0 23.094L40 0' stroke='white' stroke-width='1' fill='none'/%3E%3C/svg%3E");
+    background-size: 40px 23.094px;
+    pointer-events: none;
+  }
+  .iso-panel a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  @media (max-width: 640px) {
+    .iso-panel {
+      box-shadow: 5px 5px 0 0 var(--shadow-solid);
+      border-radius: 10px;
+    }
+  }
+  /* 数字タイル: 白いカードに右下のべた影 */
+  .tile {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: 4px 4px 0 0 var(--shadow-solid);
   }
   /* 長文（問題文・テキスト）の読みやすい行長 */
   .prose-ja {

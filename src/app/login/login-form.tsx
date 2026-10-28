@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useEffect, useState, type FormEvent } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { toast } from "sonner";
 import { getSupabaseBrowserClient } from "@/lib/supabase/client";
@@ -23,6 +23,19 @@ export function LoginForm() {
   const [password, setPassword] = useState("");
   const [busy, setBusy] = useState(false);
   const [sentTo, setSentTo] = useState<string | null>(null);
+
+  // すでにログイン済みならホームへ
+  useEffect(() => {
+    let active = true;
+    getSupabaseBrowserClient()
+      .auth.getSession()
+      .then(({ data }) => {
+        if (active && data.session) router.replace(next);
+      });
+    return () => {
+      active = false;
+    };
+  }, [router, next]);
 
   async function submit(e: FormEvent) {
     e.preventDefault();

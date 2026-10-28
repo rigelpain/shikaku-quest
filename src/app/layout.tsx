@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { BIZ_UDPGothic, DotGothic16 } from "next/font/google";
+import { BIZ_UDPGothic, Zen_Kaku_Gothic_New } from "next/font/google";
 import "./globals.css";
 import { AppProviders } from "@/components/providers/app-providers";
 
@@ -11,8 +11,8 @@ const bodyFont = BIZ_UDPGothic({
   preload: false,
 });
 
-const displayFont = DotGothic16({
-  weight: "400",
+const displayFont = Zen_Kaku_Gothic_New({
+  weight: ["700", "900"],
   subsets: ["latin"],
   variable: "--font-display",
   display: "swap",
@@ -34,8 +34,8 @@ export const viewport: Viewport = {
   initialScale: 1,
   viewportFit: "cover",
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f6f7f9" },
-    { media: "(prefers-color-scheme: dark)", color: "#141a3a" },
+    { media: "(prefers-color-scheme: light)", color: "#f3f5fa" },
+    { media: "(prefers-color-scheme: dark)", color: "#121a33" },
   ],
 };
 

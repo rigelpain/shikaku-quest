@@ -1,7 +1,7 @@
 export function SetupNotice() {
   return (
     <main className="page py-10">
-      <div className="rpg-window mx-auto max-w-2xl">
+      <div className="iso-panel mx-auto max-w-2xl">
         <h1 className="font-display text-2xl">さいしょの設定</h1>
         <p className="mt-3">
           まだ Supabase の接続情報がありません。次の手順で環境変数を設定すると、ログイン画面が使えるようになります。

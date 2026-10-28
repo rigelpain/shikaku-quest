@@ -24,7 +24,7 @@ export default function TextsPage() {
         description="分野ごとの要点まとめ。問題を解く前の確認と、解いた後の整理に。"
       />
       {texts.length === 0 && (
-        <div className="rpg-window">
+        <div className="iso-panel">
           <p>テキストはまだありません。</p>
           <p className="mt-2 text-sm opacity-90">src/content/texts に Markdown を置くと、ここに並びます。</p>
         </div>

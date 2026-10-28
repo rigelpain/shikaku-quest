@@ -29,7 +29,7 @@ export function CertDetail({ id }: { id: string }) {
 
   if (!cert) {
     return (
-      <div className="rpg-window">
+      <div className="iso-panel">
         <p>その資格は見つかりませんでした。</p>
         <Link href="/certs">資格一覧へ戻る</Link>
       </div>

@@ -180,7 +180,7 @@ export function LogView() {
 
       <div className="grid gap-4 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)]">
         <div className="space-y-4">
-          <section className="rpg-window" aria-label="タイマー">
+          <section className="iso-panel" aria-label="タイマー">
             {timer ? (
               <div className="flex flex-wrap items-end justify-between gap-4">
                 <div>
@@ -199,10 +199,10 @@ export function LogView() {
                     className="border-window-foreground/50 bg-transparent text-window-foreground placeholder:text-window-foreground/60"
                   />
                   <div className="flex gap-2">
-                    <Button variant="secondary" onClick={() => stopTimer(true)} disabled={add.isPending}>
+                    <Button variant="light" onClick={() => stopTimer(true)} disabled={add.isPending}>
                       終わって記録する
                     </Button>
-                    <Button variant="ghost" className="text-window-foreground hover:bg-window-foreground/10 hover:text-window-foreground" onClick={() => stopTimer(false)}>
+                    <Button variant="light-ghost" onClick={() => stopTimer(false)}>
                       破棄
                     </Button>
                   </div>
@@ -244,7 +244,7 @@ export function LogView() {
                     ))}
                   </select>
                 </div>
-                <Button size="lg" variant="secondary" onClick={startTimer}>
+                <Button size="lg" variant="light" onClick={startTimer}>
                   タイマーを始める
                 </Button>
               </div>
@@ -390,7 +390,7 @@ export function LogView() {
 
 function Tile({ label, value, sub }: { label: string; value: string; sub?: string }) {
   return (
-    <div className="rounded-lg border bg-card p-4">
+    <div className="tile p-4">
       <p className="text-xs text-muted-foreground">{label}</p>
       <p className="mt-1 font-display text-[clamp(1.5rem,1.2rem+1vw,2rem)] leading-none tnum">{value}</p>
       {sub && <p className="mt-1 text-xs text-muted-foreground">{sub}</p>}

@@ -49,7 +49,7 @@ export function PracticeHome() {
     return (
       <>
         <PageHeader title="演習" />
-        <div className="rpg-window">
+        <div className="iso-panel">
           <p>問題データがまだありません。</p>
           <p className="mt-2 text-sm opacity-90">
             scripts/ipa のパイプラインで IPA の公開問題を JSON 化すると、ここに並びます。
@@ -84,7 +84,7 @@ export function PracticeHome() {
         ))}
       </div>
 
-      <div className="rpg-window mb-6">
+      <div className="iso-panel mb-6">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
             <p className="text-sm opacity-90">今日の復習</p>
@@ -96,7 +96,7 @@ export function PracticeHome() {
           <div className="flex flex-wrap gap-2">
             <Button
               size="lg"
-              variant="secondary"
+              variant="light"
               disabled={!due}
               render={<Link href={sessionHref({ cert: activeCert, mode: "due", n: count })} />}
             >
@@ -104,8 +104,7 @@ export function PracticeHome() {
             </Button>
             <Button
               size="lg"
-              variant="outline"
-              className="border-window-foreground/60 bg-transparent text-window-foreground hover:bg-window-foreground/10 hover:text-window-foreground"
+              variant="light-outline"
               render={<Link href={sessionHref({ cert: activeCert, mode: "new", n: count, middle })} />}
             >
               新しい問題を解く

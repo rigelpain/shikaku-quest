@@ -88,7 +88,7 @@ export function SettingsView() {
         <Card>
           <CardHeader>
             <CardTitle>見た目</CardTitle>
-            <CardDescription>ダークは「冒険の書」寄りの紺地になります。</CardDescription>
+            <CardDescription>ダークは紺地になります。</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="flex flex-wrap gap-2" role="radiogroup" aria-label="テーマ">

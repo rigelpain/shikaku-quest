@@ -91,7 +91,7 @@ export function PracticeSession() {
   if (!index) return <Skeleton className="h-64 w-full" />;
   if (!files.length) {
     return (
-      <div className="rpg-window">
+      <div className="iso-panel">
         <p>対象の問題セットが見つかりませんでした。</p>
         <Link href="/practice">演習トップへ戻る</Link>
       </div>
@@ -226,13 +226,13 @@ function SessionRunner({
 
   if (queue.length === 0) {
     return (
-      <div className="rpg-window">
+      <div className="iso-panel">
         <p className="font-display text-xl">今は解く問題がありません</p>
         <p className="mt-2 text-sm opacity-90">
           {mode === "due" ? "復習期限の来た問題はありません。新しい問題を解きましょう。" : "この条件に合う未着手の問題はありません。"}
         </p>
         <div className="mt-4 flex flex-wrap gap-2">
-          <Button variant="secondary" render={<Link href="/practice" />}>
+          <Button variant="light" render={<Link href="/practice" />}>
             演習トップへ
           </Button>
         </div>
@@ -246,7 +246,7 @@ function SessionRunner({
     const sec = Math.round(results.reduce((a, r) => a + r.timeMs, 0) / 1000);
     return (
       <div className="mx-auto max-w-2xl">
-        <div className="rpg-window">
+        <div className="iso-panel">
           <p className="text-sm opacity-90">おつかれさまでした</p>
           <p className="font-display text-[clamp(2rem,1.5rem+2.5vw,3.2rem)] leading-none tnum">
             {ok}
@@ -256,17 +256,16 @@ function SessionRunner({
             正答率 {total ? Math.round((ok / total) * 100) : 0}% ・ {Math.floor(sec / 60)}分{sec % 60}秒
           </p>
           <div className="mt-5 flex flex-wrap gap-2">
-            <Button variant="secondary" onClick={restart}>
+            <Button variant="light" onClick={restart}>
               同じ条件でもう一度
             </Button>
             <Button
-              variant="outline"
-              className="border-window-foreground/60 bg-transparent text-window-foreground hover:bg-window-foreground/10 hover:text-window-foreground"
+              variant="light-outline"
               render={<Link href="/practice" />}
             >
               演習トップへ
             </Button>
-            <Button variant="ghost" className="text-window-foreground hover:bg-window-foreground/10 hover:text-window-foreground" render={<Link href="/log" />}>
+            <Button variant="light-ghost" render={<Link href="/log" />}>
               学習時間を記録する
             </Button>
           </div>
@@ -293,7 +292,7 @@ function SessionRunner({
         <div className="h-full bg-primary transition-[width]" style={{ width: `${progress}%` }} />
       </div>
 
-      <div className="rpg-window">
+      <div className="iso-panel">
         <p className="mb-2 flex flex-wrap gap-1.5 text-xs opacity-90">
           <Badge variant="outline" className="border-window-foreground/50 text-window-foreground">
             {q.middle}

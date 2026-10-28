@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
 import { Home, Award, Swords, BookOpen, NotebookPen, Settings } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { IsoLogo } from "@/components/iso/iso-cubes";
 
 const NAV = [
   { href: "/", label: "ホーム", icon: Home },
@@ -27,11 +28,9 @@ export function AppShell({ children }: { children: ReactNode }) {
       <aside className="sticky top-0 hidden h-dvh shrink-0 flex-col border-r border-sidebar-border bg-sidebar md:flex md:w-[4.5rem] lg:w-56">
         <Link
           href="/"
-          className="flex h-16 items-center justify-center border-b border-sidebar-border px-3 font-display text-lg tracking-wide lg:justify-start lg:px-5 lg:text-xl"
+          className="flex h-16 items-center justify-center gap-2.5 border-b border-sidebar-border px-3 font-display text-lg lg:justify-start lg:px-5 lg:text-xl"
         >
-          <span className="lg:hidden" aria-hidden>
-            資
-          </span>
+          <IsoLogo className="h-8 w-auto shrink-0" />
           <span className="hidden lg:inline">資格クエスト</span>
           <span className="sr-only">資格クエスト ホーム</span>
         </Link>
@@ -79,7 +78,8 @@ export function AppShell({ children }: { children: ReactNode }) {
       <div className="flex min-w-0 flex-1 flex-col">
         {/* スマホ: 上のバー */}
         <header className="sticky top-0 z-20 flex h-14 items-center justify-between border-b bg-background/90 px-4 backdrop-blur md:hidden">
-          <Link href="/" className="font-display text-lg tracking-wide">
+          <Link href="/" className="flex items-center gap-2 font-display text-lg">
+            <IsoLogo className="h-6 w-auto" />
             資格クエスト
           </Link>
           <Link
