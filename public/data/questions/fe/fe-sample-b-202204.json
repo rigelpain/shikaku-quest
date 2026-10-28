@@ -1,0 +1,176 @@
+{
+  "id": "fe-sample-b-202204",
+  "cert": "fe",
+  "section": "b",
+  "title": "基本情報技術者試験 科目B サンプル問題（2022年4月25日公開）",
+  "era": "2022年公開",
+  "season": null,
+  "kind": "サンプル問題",
+  "sourceUrl": "https://www.ipa.go.jp/shiken/syllabus/ps6vr7000000oett-att/fe_kamoku_b_sample.pdf",
+  "license": "IPA: 出典明記で許諾不要",
+  "generatedAt": "2026-10-28T06:46:04.416Z",
+  "questions": [
+    {
+      "id": "fe-sample-b-202204-q01",
+      "number": 1,
+      "text": "次のプログラム中の ［　］ に入れる正しい答えを，解答群の中から選べ。\n\nある施設の入場料は，0 歳から 3 歳までは 100 円，4 歳から 9 歳までは 300 円，10 歳以上は 500 円である。関数 fee は，年齢を表す 0 以上の整数を引数として受け取り，入場料を返す。\n\n〔プログラム〕\n\n```text\n○整数型: fee(整数型: age)\n  整数型: ret\n  if (age が 3 以下)\n    ret ← 100\n  elseif ( ［　］ )\n    ret ← 300\n  else\n    ret ← 500\n  endif\n  return ret\n```",
+      "choices": [
+        "(age が 4 以上) and (age が 9 より小さい)",
+        "(age が 4 と等しい) or (age が 9 と等しい)",
+        "(age が 4 より大きい) and (age が 9 以下)",
+        "age が 4 以上",
+        "age が 4 より大きい",
+        "age が 9 以下",
+        "age が 9 より小さい"
+      ],
+      "answer": 5,
+      "major": "テクノロジ系",
+      "middle": "アルゴリズムとプログラミング",
+      "hasFigure": false,
+      "citation": "出典：基本情報技術者試験 科目B サンプル問題（2022年4月25日公開） 問1",
+      "pdfPage": 2,
+      "tags": [
+        "選択処理",
+        "条件式",
+        "if-elseif"
+      ],
+      "explanation": "if の最初の条件で age が 3 以下の場合は既に処理されているので，elseif に到達するのは age が 4 以上のときだけです。したがって 300 円を返す条件としては「age が 9 以下」だけで十分であり，カが正解です。アやキは 9 より小さい（9 を含まない）ため 9 歳が 500 円になってしまい，ウは 4 より大きい（4 を含まない）ため 4 歳が 500 円になります。エやオでは 10 歳以上も条件を満たして 300 円を返してしまい，いずれも仕様と合いません。",
+      "explanationSource": "ai",
+      "explanationVerified": false
+    },
+    {
+      "id": "fe-sample-b-202204-q02",
+      "number": 2,
+      "text": "次のプログラム中の ［ a ］ と ［ b ］ に入れる正しい答えの組合せを，解答群の中から選べ。ここで，配列の要素番号は 1 から始まる。\n\n次のプログラムは，整数型の配列arrayの要素の並びを逆順にする。\n\n〔プログラム〕\n\n```text\n整数型の配列: array ← {1, 2, 3, 4, 5}\n整数型: right, left\n整数型: tmp\nfor (left を 1 から (arrayの要素数 ÷ 2 の商) まで 1 ずつ増やす)\n  right ← ［ a ］\n  tmp ← array[right]\n  array[right] ← array[left]\n  ［ b ］ ← tmp\nendfor\n```",
+      "choices": [
+        "a: array の要素数 － left／b: array[left]",
+        "a: array の要素数 － left／b: array[right]",
+        "a: array の要素数 － left ＋ 1／b: array[left]",
+        "a: array の要素数 － left ＋ 1／b: array[right]"
+      ],
+      "answer": 2,
+      "major": "テクノロジ系",
+      "middle": "アルゴリズムとプログラミング",
+      "hasFigure": false,
+      "citation": "出典：基本情報技術者試験 科目B サンプル問題（2022年4月25日公開） 問2",
+      "pdfPage": 3,
+      "tags": [
+        "配列",
+        "逆順",
+        "要素の交換"
+      ],
+      "explanation": "配列の並びを逆順にするには，先頭から left 番目の要素と末尾から left 番目の要素を交換します。要素番号は 1 から始まるので，left＝1 のときの相手は要素数番目であり，right は「array の要素数 － left ＋ 1」になります（a）。交換は tmp に array[right] を退避し，array[right] に array[left] を入れた後，退避した値を array[left] に戻す必要があるので，b は array[left] です。したがってウが正解です。アやイのように ＋1 がないと left＝1 のとき right が要素数－1 になり末尾の要素が対象から外れ，イやエのように b を array[right] にすると右側の値が上書きされて元の値が失われます。",
+      "explanationSource": "ai",
+      "explanationVerified": false
+    },
+    {
+      "id": "fe-sample-b-202204-q03",
+      "number": 3,
+      "text": "次のプログラム中の ［ a ］ と ［ b ］ に入れる正しい答えの組合せを，解答群の中から選べ。\n\n手続 append は，引数で与えられた文字を単方向リストに追加する手続である。単方向リストの各要素は，クラス ListElement を用いて表現する。クラス ListElement の説明を図に示す。ListElement 型の変数はクラス ListElement のインスタンスの参照を格納するものとする。大域変数 listHead は，単方向リストの先頭の要素の参照を格納する。リストが空のときは，listHead は未定義である。\n\n| メンバ変数 | 型 | 説明 |\n|---|---|---|\n| val | 文字型 | リストに格納する文字。 |\n| next | ListElement | リストの次の文字を保持するインスタンスの参照。初期状態は未定義である。 |\n\n| コンストラクタ | 説明 |\n|---|---|\n| ListElement(文字型: qVal) | 引数 qVal でメンバ変数 val を初期化する。 |\n\n図 クラス ListElement の説明\n\n〔プログラム〕\n\n```text\n大域: ListElement: listHead ← 未定義の値\n○append(文字型: qVal)\n  ListElement: prev, curr\n  curr ← ListElement(qVal)\n  if (listHead が ［ a ］)\n    listHead ← curr\n  else\n    prev ← listHead\n    while (prev.next が 未定義でない)\n      prev ← prev.next\n    endwhile\n    prev.next ← ［ b ］\n  endif\n```",
+      "choices": [
+        "a: 未定義／b: curr",
+        "a: 未定義／b: curr.next",
+        "a: 未定義／b: listHead",
+        "a: 未定義でない／b: curr",
+        "a: 未定義でない／b: curr.next",
+        "a: 未定義でない／b: listHead"
+      ],
+      "answer": 0,
+      "major": "テクノロジ系",
+      "middle": "アルゴリズムとプログラミング",
+      "hasFigure": false,
+      "citation": "出典：基本情報技術者試験 科目B サンプル問題（2022年4月25日公開） 問3",
+      "pdfPage": 4,
+      "tags": [
+        "単方向リスト",
+        "クラス",
+        "要素の追加"
+      ],
+      "explanation": "リストが空のときは listHead が未定義なので，その場合に新しい要素 curr を先頭にするために，a は「未定義」です（a が「未定義でない」だと，要素があるときに先頭を上書きしてリストが壊れます）。リストに要素があるときは while で prev を末尾の要素まで進め，その next に新しい要素 curr をつなぐので，b は curr です。したがってアが正解です。b を curr.next にすると未定義の値をつなぐことになり，listHead にすると末尾が先頭を指して循環してしまいます。",
+      "explanationSource": "ai",
+      "explanationVerified": false
+    },
+    {
+      "id": "fe-sample-b-202204-q04",
+      "number": 4,
+      "text": "次の記述中の ［ a ］ ～ ［ c ］ に入れる正しい答えの組合せを，解答群の中から選べ。ここで，配列の要素番号は 1 から始まる。\n\n要素の多くが 0 の行列を疎行列という。次のプログラムは，二次元配列に格納された行列のデータ量を削減するために，疎行列の格納に適したデータ構造に変換する。\n\n関数 transformSparseMatrix は，引数 matrix で二次元配列として与えられた行列を，整数型配列の配列に変換して返す。関数 transformSparseMatrix を transformSparseMatrix({{3, 0, 0, 0, 0}, {0, 2, 2, 0, 0}, {0, 0, 0, 1, 3}, {0, 0,0, 2, 0}, {0, 0, 0, 0, 1}})として呼び出したときの戻り値は，{{ ［ a ］ },{ ［ b ］ }, { ［ c ］ }} である。\n\n〔プログラム〕\n\n```text\n○整数型配列の配列: transformSparseMatrix(整数型の二次元配列: matrix)\n  整数型: i, j\n  整数型配列の配列: sparseMatrix\n  sparseMatrix ← {{}, {}, {}} /* 要素数0の配列を三つ要素にもつ配列 */\n  for (i を 1 から matrixの行数 まで 1 ずつ増やす)\n    for (j を 1 から matrixの列数 まで 1 ずつ増やす)\n      if (matrix[i, j] が 0 でない)\n        sparseMatrix[1]の末尾 に iの値 を追加する\n        sparseMatrix[2]の末尾 に jの値 を追加する\n        sparseMatrix[3]の末尾 に matrix[i, j]の値 を追加する\n      endif\n    endfor\n  endfor\n  return sparseMatrix\n```",
+      "choices": [
+        "a: 1, 2, 2, 3, 3, 4, 5／b: 1, 2, 3, 4, 5, 4, 5／c: 3, 2, 2, 1, 2, 3, 1",
+        "a: 1, 2, 2, 3, 3, 4, 5／b: 1, 2, 3, 4, 5, 4, 5／c: 3, 2, 2, 1, 3, 2, 1",
+        "a: 1, 2, 3, 4, 5, 4, 5／b: 1, 2, 2, 3, 3, 4, 5／c: 3, 2, 2, 1, 2, 3, 1",
+        "a: 1, 2, 3, 4, 5, 4, 5／b: 1, 2, 2, 3, 3, 4, 5／c: 3, 2, 2, 1, 3, 2, 1"
+      ],
+      "answer": 1,
+      "major": "テクノロジ系",
+      "middle": "アルゴリズムとプログラミング",
+      "hasFigure": false,
+      "citation": "出典：基本情報技術者試験 科目B サンプル問題（2022年4月25日公開） 問4",
+      "pdfPage": 6,
+      "tags": [
+        "疎行列",
+        "二次元配列",
+        "データ構造の変換"
+      ],
+      "explanation": "プログラムは行列を行番号 i の順，各行では列番号 j の順に走査し，0 でない要素を見つけるたびに sparseMatrix[1] に行番号，sparseMatrix[2] に列番号，sparseMatrix[3] にその値を追加します。与えられた行列の 0 でない要素は，(1,1)＝3，(2,2)＝2，(2,3)＝2，(3,4)＝1，(3,5)＝3，(4,4)＝2，(5,5)＝1 の順に見つかります。したがって a は行番号の並び 1, 2, 2, 3, 3, 4, 5，b は列番号の並び 1, 2, 3, 4, 5, 4, 5，c は値の並び 3, 2, 2, 1, 3, 2, 1 となり，イが正解です。アは値の並びの 3 行目と 4 行目が入れ替わっており，ウとエは行番号と列番号の並びが逆になっています。",
+      "explanationSource": "ai",
+      "explanationVerified": false
+    },
+    {
+      "id": "fe-sample-b-202204-q05",
+      "number": 5,
+      "text": "次のプログラム中の ［　］ に入れる正しい答えを，解答群の中から選べ。\n\n任意の異なる 2 文字を c1，c2 とするとき，英単語群に含まれる英単語において，c1 の次に c2 が出現する割合を求めるプログラムである。英単語は，英小文字だけから成る。英単語の末尾の文字が c1 である場合，その箇所は割合の計算に含めない。例えば，図に示す 4 語の英単語“importance”，“inflation”，“information”，“innovation”から成る英単語群において，c1 を“n”，c2 を“f”とする。英単語の末尾の文字以外に“n”は五つあり，そのうち次の文字が“f”であるものは二つである。したがって，求める割合は，2 ÷ 5 ＝ 0.4 である。c1 と c2 の並びが一度も出現しない場合，c1 の出現回数によらず割合を 0 と定義する。\n\n（図：4 語の英単語群の例。importance の n は次の文字が c，inflation の 1 文字目の n は次の文字が f，末尾の n は割合の計算に含めない。information の 1 文字目の n は次の文字が f，末尾の n は含めない。innovation の 1 文字目の n は次の文字が n，2 文字目の n は次の文字が o，末尾の n は含めない。）\n\nプログラムにおいて，英単語群は Words 型の大域変数 words に格納されている。クラス Words のメソッドの説明を，表に示す。本問において，文字列に対する演算子“＋”は，文字列の連結を表す。また，整数に対する演算子“÷”は，実数として計算する。\n\n表 クラス Words のメソッドの説明\n\n| メソッド | 戻り値 | 説明 |\n|---|---|---|\n| freq(文字列型: str) | 整数型 | 英単語群中の文字列 str の出現回数を返す。 |\n| freqE(文字列型: str) | 整数型 | 英単語群の中で，文字列 str で終わる英単語の数を返す。 |\n\n〔プログラム〕\n\n```text\n大域: Words: words /* 英単語群が格納されている */\n/* c1の次にc2が出現する割合を返す */\n○実数型: prob(文字型: c1, 文字型: c2)\n  文字列型: s1 ← c1の1文字だけから成る文字列\n  文字列型: s2 ← c2の1文字だけから成る文字列\n  if (words.freq(s1 ＋ s2) が 0 より大きい)\n    return ［　］\n  else\n    return 0\n  endif\n```",
+      "choices": [
+        "(words.freq(s1) － words.freqE(s1)) ÷ words.freq(s1 ＋ s2)",
+        "(words.freq(s2) － words.freqE(s2)) ÷ words.freq(s1 ＋ s2)",
+        "words.freq(s1 ＋ s2) ÷ (words.freq(s1) － words.freqE(s1))",
+        "words.freq(s1 ＋ s2) ÷ (words.freq(s2) － words.freqE(s2))"
+      ],
+      "answer": 2,
+      "major": "テクノロジ系",
+      "middle": "アルゴリズムとプログラミング",
+      "hasFigure": false,
+      "citation": "出典：基本情報技術者試験 科目B サンプル問題（2022年4月25日公開） 問5",
+      "pdfPage": 7,
+      "tags": [
+        "文字列処理",
+        "出現割合",
+        "ライブラリの利用"
+      ],
+      "explanation": "求める割合は「c1 の次に c2 が並ぶ箇所の数」を「末尾以外に c1 が出現する数」で割ったものです。分子は 2 文字の並び s1＋s2 の出現回数 words.freq(s1 ＋ s2) で求められます。分母は c1 の出現回数 words.freq(s1) から，末尾が c1 である英単語の数 words.freqE(s1) を引いたものです。したがってウが正解です。アとイは分子と分母が逆で割合が 1 を超えることがあり，エは分母で c2 の出現数を使っており，c1 を基準にする仕様と合いません。例の“n”と“f”なら 2÷(7－2)＝0.4 になります。",
+      "explanationSource": "ai",
+      "explanationVerified": false
+    },
+    {
+      "id": "fe-sample-b-202204-q06",
+      "number": 6,
+      "text": "製造業の A 社では，EC サイト（以下，A 社の EC サイトを A サイトという）を使用し，個人向けの製品販売を行っている。A サイトは，A 社の製品やサービスが検索可能で，ログイン機能を有しており，あらかじめ A サイトに利用登録した個人（以下，会員という）の氏名やメールアドレスといった情報（以下，会員情報という）を管理している。A サイトは，B 社の PaaS で稼働しており，PaaS 上の DBMS とアプリケーションサーバを利用している。\n\nA 社は，A サイトの開発，運用を C 社に委託している。A 社と C 社との間の委託契約では，Web アプリケーションプログラムの脆弱性対策は，C 社が実施するとしている。\n\n最近，A 社の同業他社が運営している Web サイトで脆弱性が悪用され，個人情報が漏えいするという事件が発生した。そこで A 社は，セキュリティ診断サービスを行っている D 社に，A サイトの脆弱性診断を依頼した。脆弱性診断の結果，対策が必要なセキュリティ上の脆弱性が複数指摘された。図 1 に D 社からの指摘事項を示す。\n\n(一) A サイトで利用している DBMS に既知の脆弱性があり，脆弱性を悪用した攻撃を受けるおそれがある。\n\n(二) A サイトで利用しているアプリケーションサーバの OS に既知の脆弱性があり，脆弱性を悪用した攻撃を受けるおそれがある。\n\n(三) ログイン機能に脆弱性があり，A サイトのデータベースに蓄積された情報のうち，会員には非公開の情報を閲覧されるおそれがある。\n\n図 1 D 社からの指摘事項\n\n設問 図 1 中の項番(一)～(三)それぞれに対処する組織の適切な組合せを，解答群の中から選べ。",
+      "choices": [
+        "(一): A 社／(二): A 社／(三): A 社",
+        "(一): A 社／(二): A 社／(三): C 社",
+        "(一): A 社／(二): B 社／(三): B 社",
+        "(一): B 社／(二): B 社／(三): B 社",
+        "(一): B 社／(二): B 社／(三): C 社",
+        "(一): B 社／(二): C 社／(三): B 社",
+        "(一): B 社／(二): C 社／(三): C 社",
+        "(一): C 社／(二): B 社／(三): B 社",
+        "(一): C 社／(二): B 社／(三): C 社",
+        "(一): C 社／(二): C 社／(三): B 社"
+      ],
+      "answer": 4,
+      "major": "テクノロジ系",
+      "middle": "セキュリティ",
+      "hasFigure": false,
+      "citation": "出典：基本情報技術者試験 科目B サンプル問題（2022年4月25日公開） 問6",
+      "pdfPage": 9,
+      "tags": [
+        "クラウドの責任共有",
+        "PaaS",
+        "脆弱性対策",
+        "委託"
+      ],
+      "explanation": "A サイトは B 社の PaaS で動いており，PaaS では DBMS やアプリケーションサーバの OS といったプラットフォーム部分は提供者である B 社が管理します。したがって (一) の DBMS の脆弱性と (二) のアプリケーションサーバの OS の脆弱性に対処するのは B 社です。一方，(三) のログイン機能の脆弱性は A 社が開発・運用を委託している Web アプリケーション自体の問題であり，委託契約で Web アプリケーションの脆弱性対策は C 社が実施するとされているので，対処するのは C 社です。よって B 社，B 社，C 社の組合せであるオが正解です。A 社自身が対処するとした選択肢や，プラットフォームの脆弱性を C 社に割り当てた選択肢は責任分担と一致しません。",
+      "explanationSource": "ai",
+      "explanationVerified": false
+    }
+  ]
+}

@@ -1,0 +1,175 @@
+{
+  "id": "fe-r5-koukai-b",
+  "cert": "fe",
+  "section": "b",
+  "title": "令和5年度 基本情報技術者試験 公開問題 科目B",
+  "era": "令和5年度",
+  "season": null,
+  "kind": "公開問題",
+  "sourceUrl": "https://www.ipa.go.jp/shiken/mondai-kaiotu/sg_fe/koukai/t6hhco0000003zx0-att/2023r05_fe_kamoku_b_qs.pdf",
+  "answerUrl": "https://www.ipa.go.jp/shiken/mondai-kaiotu/sg_fe/koukai/t6hhco0000003zx0-att/2023r05_fe_kamoku_b_ans.pdf",
+  "license": "IPA: 出典明記で許諾不要",
+  "generatedAt": "2026-10-28T06:46:04.416Z",
+  "questions": [
+    {
+      "id": "fe-r5-koukai-b-q01",
+      "number": 1,
+      "text": "次のプログラム中の ［ a ］ と ［ b ］ に入れる正しい答えの組合せを，解答群の中から選べ。ここで，配列の要素番号は 1 から始まる。\n\n関数 findPrimeNumbers は，引数で与えられた整数以下の，全ての素数だけを格納した配列を返す関数である。ここで，引数に与える整数は 2 以上である。\n\n〔プログラム〕\n\n```text\n○整数型の配列: findPrimeNumbers(整数型: maxNum)\n  整数型の配列: pnList ← {} // 要素数0の配列\n  整数型: i, j\n  論理型: divideFlag\n  for (i を 2 から ［ a ］ まで 1 ずつ増やす)\n    divideFlag ← true\n    /* iの正の平方根の整数部分が2未満のときは，繰返し処理を実行しない */\n    for (j を 2 から iの正の平方根の整数部分 まで 1 ずつ増やす) // α\n      if ( ［ b ］ )\n        divideFlag ← false\n        αの行から始まる繰返し処理を終了する\n      endif\n    endfor\n    if (divideFlag が true と等しい)\n      pnListの末尾 に iの値 を追加する\n    endif\n  endfor\n  return pnList\n```",
+      "choices": [
+        "a: maxNum／b: i ÷ j の余り が 0 と等しい",
+        "a: maxNum／b: i ÷ j の商 が 1 と等しくない",
+        "a: maxNum ＋ 1／b: i ÷ j の余り が 0 と等しい",
+        "a: maxNum ＋ 1／b: i ÷ j の商 が 1 と等しくない"
+      ],
+      "answer": 0,
+      "major": "テクノロジ系",
+      "middle": "アルゴリズムとプログラミング",
+      "hasFigure": false,
+      "citation": "出典：令和5年度 基本情報技術者試験 公開問題 科目B 問1",
+      "pdfPage": 4,
+      "tags": [
+        "素数判定",
+        "繰返し処理",
+        "剰余"
+      ],
+      "explanation": "関数は「引数で与えられた整数以下」の素数を全て集めるので，外側のループは i を 2 から maxNum まで（maxNum を含めて）回す必要があり，a は maxNum です。maxNum ＋ 1 にすると引数より大きい数まで調べてしまいます。内側のループでは，i が 2 から √i までのいずれかの j で割り切れれば素数ではないと分かるので，b は「i ÷ j の余り が 0 と等しい」です。「商が 1 と等しくない」は割り切れるかどうかの判定になっておらず，例えば i＝5，j＝2 でも商 2 は 1 と異なるため素数 5 を誤って除外してしまいます。したがってアが正解です。",
+      "explanationSource": "ai",
+      "explanationVerified": false
+    },
+    {
+      "id": "fe-r5-koukai-b-q02",
+      "number": 2,
+      "text": "次の記述中の ［　］ に入れる正しい答えを，解答群の中から選べ。\n\n次のプログラムにおいて，手続 proc2 を呼び出すと， ［　］ の順に出力される。\n\n〔プログラム〕\n\n```text\n○proc1()\n  \"A\" を出力する\n  proc3()\n○proc2()\n  proc3()\n  \"B\" を出力する\n  proc1()\n○proc3()\n  \"C\" を出力する\n```",
+      "choices": [
+        "“A”，“B”，“B”，“C”",
+        "“A”，“C”",
+        "“A”，“C”，“B”，“C”",
+        "“B”，“A”，“B”，“C”",
+        "“B”，“C”，“B”，“A”",
+        "“C”，“B”",
+        "“C”，“B”，“A”",
+        "“C”，“B”，“A”，“C”"
+      ],
+      "answer": 7,
+      "major": "テクノロジ系",
+      "middle": "アルゴリズムとプログラミング",
+      "hasFigure": false,
+      "citation": "出典：令和5年度 基本情報技術者試験 公開問題 科目B 問2",
+      "pdfPage": 5,
+      "tags": [
+        "手続の呼出し",
+        "実行順序"
+      ],
+      "explanation": "proc2 を呼ぶと，最初に proc3 が呼ばれて \"C\" を出力し，戻ってから \"B\" を出力します。次に proc1 が呼ばれ，proc1 は \"A\" を出力した後に proc3 を呼ぶので \"C\" が出力されます。よって出力は \"C\"，\"B\"，\"A\"，\"C\" の順になり，クが正解です。キは最後の proc3 の呼出しを見落とした場合，アやウは proc2 内の呼出し順（proc3 が先，proc1 が後）を取り違えた場合の並びです。",
+      "explanationSource": "ai",
+      "explanationVerified": false
+    },
+    {
+      "id": "fe-r5-koukai-b-q03",
+      "number": 3,
+      "text": "次の記述中の ［　］ に入れる正しい答えを，解答群の中から選べ。ここで，配列の要素番号は 1 から始まる。\n\n次の手続 sort は，大域の整数型の配列 data の，引数 first で与えられた要素番号から引数 last で与えられた要素番号までの要素を昇順に整列する。ここで，first＜ last とする。手続 sort を sort(1, 5) として呼び出すと，/*** α ***/ の行を最初に実行したときの出力は“ ［　］ ”となる。\n\n〔プログラム〕\n\n```text\n大域: 整数型の配列: data ← {2, 1, 3, 5, 4}\n○sort(整数型: first, 整数型: last)\n  整数型: pivot, i, j\n  pivot ← data[(first ＋ last) ÷ 2 の商]\n  i ← first\n  j ← last\n  while (true)\n    while (data[i] ＜ pivot)\n      i ← i ＋ 1\n    endwhile\n    while (pivot ＜ data[j])\n      j ← j － 1\n    endwhile\n    if (i ≧ j)\n      繰返し処理を終了する\n    endif\n    data[i]とdata[j]の値を入れ替える\n    i ← i ＋ 1\n    j ← j － 1\n  endwhile\n  dataの全要素の値を要素番号の順に空白区切りで出力する /*** α ***/\n  if (first ＜ i － 1)\n    sort(first, i － 1)\n  endif\n  if (j ＋ 1 ＜ last)\n    sort(j ＋ 1, last)\n  endif\n```",
+      "choices": [
+        "1 2 3 4 5",
+        "1 2 3 5 4",
+        "2 1 3 4 5",
+        "2 1 3 5 4"
+      ],
+      "answer": 3,
+      "major": "テクノロジ系",
+      "middle": "アルゴリズムとプログラミング",
+      "hasFigure": false,
+      "citation": "出典：令和5年度 基本情報技術者試験 公開問題 科目B 問3",
+      "pdfPage": 6,
+      "tags": [
+        "クイックソート",
+        "再帰",
+        "トレース"
+      ],
+      "explanation": "sort(1, 5) では pivot が data[(1＋5)÷2 の商]＝data[3]＝3 になります。i は data[1]＝2，data[2]＝1 が 3 より小さいので進み，data[3]＝3 で止まって i＝3 になります。j は data[5]＝4，data[4]＝5 が 3 より大きいので戻り，data[3]＝3 で止まって j＝3 になります。i ≧ j が成り立つので一度も入替えをせずに繰返しを抜け，α の行で配列の初期状態 2 1 3 5 4 がそのまま出力されます。したがってエが正解で，アのように整列が終わった状態が出力されるわけではありません。",
+      "explanationSource": "ai",
+      "explanationVerified": false
+    },
+    {
+      "id": "fe-r5-koukai-b-q04",
+      "number": 4,
+      "text": "次の記述中の ［　］ に入れる正しい答えを，解答群の中から選べ。ここで，配列の要素番号は 1 から始まる。\n\n関数 add は，引数で指定された正の整数 value を大域の整数型の配列 hashArray に格納する。格納できた場合は true を返し，格納できなかった場合は false を返す。\n\nここで，整数 value を hashArray のどの要素に格納すべきかを，関数 calcHash1 及び calcHash2 を利用して決める。\n\n手続 test は，関数 add を呼び出して，hashArray に正の整数を格納する。手続 test の処理が終了した直後の hashArray の内容は， ［　］ である。\n\n〔プログラム〕\n\n```text\n大域: 整数型の配列: hashArray\n○論理型: add(整数型: value)\n  整数型: i ← calcHash1(value)\n  if (hashArray[i] ＝ －1)\n    hashArray[i] ← value\n    return true\n  else\n    i ← calcHash2(value)\n    if (hashArray[i] ＝ －1)\n      hashArray[i] ← value\n      return true\n    endif\n  endif\n  return false\n○整数型: calcHash1(整数型: value)\n  return (value mod hashArrayの要素数) ＋ 1\n○整数型: calcHash2(整数型: value)\n  return ((value ＋ 3) mod hashArrayの要素数) ＋ 1\n○test()\n  hashArray ← {5個の －1}\n  add(3)\n  add(18)\n  add(11)\n```",
+      "choices": [
+        "{－1, 3, －1, 18, 11}",
+        "{－1, 11, －1, 3, －1}",
+        "{－1, 11, －1, 18, －1}",
+        "{－1, 18, －1, 3, 11}",
+        "{－1, 18, 11, 3, －1}"
+      ],
+      "answer": 3,
+      "major": "テクノロジ系",
+      "middle": "アルゴリズムとプログラミング",
+      "hasFigure": false,
+      "citation": "出典：令和5年度 基本情報技術者試験 公開問題 科目B 問4",
+      "pdfPage": 8,
+      "tags": [
+        "ハッシュ法",
+        "衝突",
+        "オープンアドレス"
+      ],
+      "explanation": "hashArray の要素数は 5 なので，calcHash1 は (value mod 5)＋1，calcHash2 は ((value＋3) mod 5)＋1 です。add(3) は calcHash1 が 4 なので hashArray[4]＝3 になります。add(18) は calcHash1 が (18 mod 5)＋1＝4 で既に使われているため，calcHash2 の (21 mod 5)＋1＝2 で hashArray[2]＝18 になります。add(11) は calcHash1 が (11 mod 5)＋1＝2 で使用済みなので，calcHash2 の (14 mod 5)＋1＝5 で hashArray[5]＝11 になります。結果は {－1, 18, －1, 3, 11} となり，エが正解です。アやウは衝突時に 2 つ目のハッシュ関数を使うことを考慮していない並びです。",
+      "explanationSource": "ai",
+      "explanationVerified": false
+    },
+    {
+      "id": "fe-r5-koukai-b-q05",
+      "number": 5,
+      "text": "次のプログラム中の ［ a ］ と ［ b ］ に入れる正しい答えの組合せを，解答群の中から選べ。ここで，配列の要素番号は 1 から始まる。\n\nコサイン類似度は，二つのベクトルの向きの類似性を測る尺度である。関数 calcCosineSimilarity は，いずれも要素数が n(n≧1) である実数型の配列 vector1 と vector2 を受け取り，二つの配列のコサイン類似度を返す。配列 vector1 が {a1, a2, …, an}，配列 vector2 が {b1, b2, …, bn} のとき，コサイン類似度は次の数式で計算される。ここで，配列 vector1 と配列 vector2 のいずれも，全ての要素に 0 が格納されていることはないものとする。\n\n（a1b1 ＋ a2b2 ＋ … ＋ anbn）÷（√(a1² ＋ a2² ＋ … ＋ an²) × √(b1² ＋ b2² ＋ … ＋ bn²)）\n\n〔プログラム〕\n\n```text\n○実数型: calcCosineSimilarity(実数型の配列: vector1, 実数型の配列: vector2)\n  実数型: similarity, numerator, denominator, temp ← 0\n  整数型: i\n  numerator ← 0\n  for (i を 1 から vector1の要素数 まで 1 ずつ増やす)\n    numerator ← numerator ＋ ［ a ］\n  endfor\n  for (i を 1 から vector1の要素数 まで 1 ずつ増やす)\n    temp ← temp ＋ vector1[i]の2乗\n  endfor\n  denominator ← tempの正の平方根\n  temp ← 0\n  for (i を 1 から vector2の要素数 まで 1 ずつ増やす)\n    temp ← temp ＋ vector2[i]の2乗\n  endfor\n  denominator ← ［ b ］\n  similarity ← numerator ÷ denominator\n  return similarity\n```",
+      "choices": [
+        "a: (vector1[i] × vector2[i])の正の平方根／b: denominator × (tempの正の平方根)",
+        "a: (vector1[i] × vector2[i])の正の平方根／b: denominator ＋ (tempの正の平方根)",
+        "a: (vector1[i] × vector2[i])の正の平方根／b: tempの正の平方根",
+        "a: vector1[i] × vector2[i]／b: denominator × (tempの正の平方根)",
+        "a: vector1[i] × vector2[i]／b: denominator ＋ (tempの正の平方根)",
+        "a: vector1[i] × vector2[i]／b: tempの正の平方根",
+        "a: vector1[i]の2乗／b: denominator × (tempの正の平方根)",
+        "a: vector1[i]の2乗／b: denominator ＋ (tempの正の平方根)",
+        "a: vector1[i]の2乗／b: tempの正の平方根"
+      ],
+      "answer": 3,
+      "major": "テクノロジ系",
+      "middle": "アルゴリズムとプログラミング",
+      "hasFigure": false,
+      "citation": "出典：令和5年度 基本情報技術者試験 公開問題 科目B 問5",
+      "pdfPage": 10,
+      "tags": [
+        "コサイン類似度",
+        "ベクトル",
+        "内積"
+      ],
+      "explanation": "数式の分子は各要素の積の和 a1b1＋…＋anbn なので，最初のループで numerator に加えるのは vector1[i] × vector2[i] であり，a は平方根を取らない積です。分母は vector1 の要素の 2 乗和の平方根と vector2 の要素の 2 乗和の平方根の積です。プログラムでは 2 番目のループの後で denominator に vector1 側の平方根が入り，3 番目のループで temp に vector2 側の 2 乗和が入るので，b は denominator × (tempの正の平方根) です。したがってエが正解です。オやクのように ＋ でつなぐと分母が積にならず，カやケのように temp の平方根だけにすると vector1 側の大きさが無視されてしまいます。",
+      "explanationSource": "ai",
+      "explanationVerified": false
+    },
+    {
+      "id": "fe-r5-koukai-b-q06",
+      "number": 6,
+      "text": "A 社は，放送会社や運輸会社向けに広告制作ビジネスを展開している。A 社は，人事業務の効率化を図るべく，人事業務の委託を検討することにした。A 社が委託する業務（以下，B 業務という）を図 1 に示す。\n\n・採用予定者から郵送されてくる入社時の誓約書，前職の源泉徴収票などの書類を PDF ファイルに変換し，ファイルサーバに格納する。\n\n（省略）\n\n図 1 B 業務\n\n委託先候補の C 社は，B 業務について，次のように A 社に提案した。\n\n・B 業務だけに従事する専任の従業員を割り当てる。\n\n・B 業務では，図 2 の複合機のスキャン機能を使用する。\n\n・スキャン機能を使用する際は，従業員ごとに付与した利用者 ID とパスワードをパネルに入力する。\n\n・スキャンしたデータを PDF ファイルに変換する。\n\n・PDF ファイルを従業員ごとに異なる鍵で暗号化して，電子メールに添付する。\n\n・スキャンを実行した本人宛てに電子メールを送信する。\n\n・PDF ファイルが大きい場合は，PDF ファイルを添付する代わりに，自社の社内ネットワーク上に設置したサーバ（以下，B サーバという）1)に自動的に保存し，保存先の URL を電子メールの本文に記載して送信する。\n\n注 1) B サーバにアクセスする際は，従業員ごとの利用者 ID とパスワードが必要になる。\n\n図 2 複合機のスキャン機能（抜粋）\n\nA 社は，C 社と業務委託契約を締結する前に，秘密保持契約を締結した。その後，C 社に質問表を送付し，回答を受けて，業務委託での情報セキュリティリスクの評価を実施した。その結果，図 3 の発見があった。\n\n・複合機のスキャン機能では，電子メールの差出人アドレス，件名，本文及び添付ファイル名を初期設定 1)の状態で使用しており，誰がスキャンを実行しても同じである。\n\n・複合機のスキャン機能の初期設定情報はベンダーの Web サイトで公開されており，誰でも閲覧できる。\n\n注 1) 複合機の初期設定は C 社の情報システム部だけが変更可能である。\n\n図 3 発見事項\n\nそこで，A 社では，初期設定の状態のままでは A 社にとって情報セキュリティリスクがあり，初期設定から変更するという対策が必要であると評価した。\n\n設問 対策が必要であると A 社が評価した情報セキュリティリスクはどれか。解答群のうち，最も適切なものを選べ。",
+      "choices": [
+        "B 業務に従事する従業員が，攻撃者からの電子メールを複合機からのものと信じて本文中にある URL をクリックし，フィッシングサイトに誘導される。その結果，A 社の採用予定者の個人情報が漏えいする。",
+        "B 業務に従事する従業員が，複合機から送信される電子メールをスパムメールと誤認し，電子メールを削除する。その結果，再スキャンが必要となり，B 業務が遅延する。",
+        "攻撃者が，複合機から送信される電子メールを盗聴し，添付ファイルを暗号化して身代金を要求する。その結果，A 社が復号鍵を受け取るために多額の身代金を支払うことになる。",
+        "攻撃者が，複合機から送信される電子メールを盗聴し，本文に記載されている URL を使って B サーバにアクセスする。その結果，A 社の採用予定者の個人情報が漏えいする。"
+      ],
+      "answer": 0,
+      "major": "テクノロジ系",
+      "middle": "セキュリティ",
+      "hasFigure": false,
+      "citation": "出典：令和5年度 基本情報技術者試験 公開問題 科目B 問6",
+      "pdfPage": 12,
+      "tags": [
+        "業務委託",
+        "フィッシング",
+        "初期設定",
+        "リスク評価"
+      ],
+      "explanation": "複合機からの通知メールの差出人アドレス，件名，本文，添付ファイル名が初期設定のままで，その初期設定がベンダーの Web サイトで公開されていると，攻撃者は複合機からのメールと見分けがつかないメールを簡単に作れます。B 業務の従業員がそれを本物と信じて本文中の URL をクリックすれば，フィッシングサイトに誘導されて採用予定者の個人情報が漏えいするおそれがあるので，アが A 社の評価したリスクです。イは業務の遅延であって情報セキュリティリスクではありません。ウは添付ファイルを盗聴して暗号化するという想定自体が現実的でなく，エは B サーバへのアクセスに従業員ごとの利用者 ID とパスワードが必要なので URL だけでは個人情報にたどり着けません。",
+      "explanationSource": "ai",
+      "explanationVerified": false
+    }
+  ]
+}

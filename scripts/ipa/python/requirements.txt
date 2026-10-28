@@ -1,0 +1,7 @@
+# AP 午前の問題 PDF は画像のみ（テキストレイヤなし）のため、macOS の Vision フレームワークで OCR する。
+# venv: /private/tmp/claude-501/-Users-mac02-Documents--wind/f69dded1-4ffe-4808-9cf7-1a87d36f2e34/scratchpad/venv（任意の場所でよい）
+#   python3 -m venv <venv> && <venv>/bin/pip install -r scripts/ipa/python/requirements.txt
+#   <venv>/bin/python3 -I scripts/ipa/python/ocr.py .cache/ipa/ap/2025r07h_ap_am_qs.pdf
+pyobjc-core>=12
+pyobjc-framework-Quartz>=12
+pyobjc-framework-Vision>=12

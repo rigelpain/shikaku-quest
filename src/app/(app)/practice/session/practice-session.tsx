@@ -302,7 +302,7 @@ function SessionRunner({
           </Badge>
           {q.hasFigure && (
             <Badge variant="outline" className="border-window-foreground/50 text-window-foreground">
-              図はPDF参照
+              図はPDF参照{q.pdfPage ? `（${q.pdfPage}ページ）` : ""}
             </Badge>
           )}
         </p>
