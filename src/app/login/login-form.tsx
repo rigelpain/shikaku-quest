@@ -177,6 +177,7 @@ function translate(message: string): string {
   if (/invalid login credentials/i.test(message)) return "メールアドレスかパスワードが違います";
   if (/email not confirmed/i.test(message)) return "メールの確認が終わっていません。届いたリンクを開いてください";
   if (/rate limit/i.test(message)) return "少し時間をおいてからもう一度お試しください";
-  if (/signups not allowed/i.test(message)) return "新規登録は無効になっています";
+  if (/signups not allowed|signups are disabled/i.test(message))
+    return "新規登録が無効になっています。Supabase の Authentication → Users から直接ユーザーを作るか、Sign up を一時的に有効にしてください";
   return message;
 }
